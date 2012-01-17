@@ -1,0 +1,320 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Amiant Image Gallery Block for Concrete5 CMS\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-10-20 19:26+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Pepe Fernández <pepefernandez@mac.com>\n"
+"Language-Team:  <pepefernandez@mac.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: t\n"
+"X-Poedit-SearchPath-0: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery\n"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/view.css.php:1
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/add.php:1
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/view.js.php:1
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/edit.php:1
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/image_row_include.php:1
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/fileset_row_include.php:1
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:2
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:2
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/view.php:1
+msgid "Access Denied."
+msgstr "Acceso denegado"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/view.js.php:170
+msgid "Image"
+msgstr "Imagen"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/view.js.php:170
+msgid "of"
+msgstr "de"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/image_row_include.php:14
+msgid "Caption (optional)"
+msgstr "Leyenda (opcional)"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/image_row_include.php:15
+msgid "Link URL (optional)"
+msgstr "Enlace URL (Opcional)"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:71
+msgid "Images"
+msgstr "Imágenes"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:72
+msgid "Gallery Options"
+msgstr "Opciones de galería"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:73
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:236
+msgid "Thumbnail Options"
+msgstr "Opciones de miniatura"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:74
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:303
+msgid "Slide Options"
+msgstr "Opciones de diapositiva"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:75
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:336
+msgid "Zoom Mode Options"
+msgstr "Opciones de modo Zoom"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:83
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/view.php:79
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/view.php:177
+msgid "Type"
+msgstr "Tipo"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:85
+msgid "Custom Slideshow"
+msgstr "Pase de diapositivas personalizado"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:86
+msgid "Pictures from File Set"
+msgstr "Imágenes de un grupo de imágenes"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:93
+msgid "Add Image"
+msgstr "Añadir imagen"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:150
+msgid "Amiant Image Gallery Options"
+msgstr "Opciones de la Galería de Imágenes Amiant"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:153
+msgid "Gallery Title:"
+msgstr "T´tiulo de la galería:"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:160
+msgid "Width:"
+msgstr "Ancho:"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:162
+msgid "Height:"
+msgstr "Alto:"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:166
+msgid "This is a size of Amiant Image Gallery block container."
+msgstr "Define el tamaño del bloque que contendrá la Galería de Imágenes Amiant"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:167
+msgid "Must be set to same size as images or higher <span class=\"required_field\">(required)</span>."
+msgstr "Debe ser el mismo tamaño o mayor que las imágenes <span class=\"required_field\">(obligatorio)</span>."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:174
+msgid "Show As Thumbnails"
+msgstr "Mostrar como miniaturas"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:182
+msgid "Enable Zoom Mode"
+msgstr "Activar modo Zoom"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:189
+msgid "Transition Type"
+msgstr "Tipo de transición"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:194
+msgid "Transition speed:"
+msgstr "Velocidad de transición:"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:196
+msgid "milliseconds."
+msgstr "milisegundos."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:207
+msgid "Auto Play"
+msgstr "Reproducción automática."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:213
+msgid "Pause slideshow on mouse hover"
+msgstr "Pausar al situar el cursor sobre la proyección."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:219
+msgid "Loop images continuously"
+msgstr "Bucle continuo."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:224
+msgid "Duration of each slide:"
+msgstr "Duración de cada diapositiva:"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:226
+msgid "seconds."
+msgstr "Segundos."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:237
+msgid "Please turn on \"Show As Thumbnails\" option on the \"Gallery Options\" tab, if you want to activate the options below."
+msgstr "Activa la opción \"Mostrar como miniaturas\" en la pestaña\"Opciones de galería\" si quieres activar las opciones que aparecen abajo.."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:245
+msgid "Maximum Thumbnails per page:"
+msgstr "Número máximo de miniaturas por página."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:249
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:258
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:267
+msgid "(required)"
+msgstr "(requerido)"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:254
+msgid "Maximum Thumbnail Width:"
+msgstr "Ancho máximo de miniaturas:"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:263
+msgid "Maximum Thumbnail Height:"
+msgstr "Alto máximo de miniaturas:"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:275
+msgid "Add Title Attribute to IMG tag for thumbnails"
+msgstr "Añadir el atributo Title a la etiqueta IMG de las miniaturas"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:279
+msgid "Show Pop-up Bubble with Information for Thumbnails"
+msgstr "Mostrar burbuja emergente con información acerca de las miniaturas"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:283
+msgid "Show File Caption in a Pop-up Bubble"
+msgstr "Mostrar leyenda del archivo en una burbuja emergente."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:286
+msgid "Show File Name in a Pop-up Bubble"
+msgstr "Mostrar nombre de archivo en una burbuja emergente."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:289
+msgid "Show File Type in a Pop-up Bubble"
+msgstr "Mostrar clase de archivo en una burbuja emergente."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:292
+msgid "Show File Size in a Pop-up Bubble"
+msgstr "Mostrar tamaño del archivo en una burbuja emergente."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:295
+msgid "Show a Link to Download the File in a Pop-up Bubble"
+msgstr "Mostrar enlace de descarga del archivo en una burbuja emergente."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:308
+msgid "Align the image in the center of the block"
+msgstr "Alinear la imagen en el centro del bloque"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:312
+msgid "Show information about the image on the slide"
+msgstr "Mostrar información de la imagen en la diapositiva"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:316
+msgid "Show File Caption"
+msgstr "Mostras leyenda del archivo"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:319
+msgid "Show File Name"
+msgstr "Mostrar el nombre del archivo"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:322
+msgid "Show File Type"
+msgstr "Mostrar el tipo de archivo"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:325
+msgid "Show File Size"
+msgstr "Mostrar el tamaño del archivo"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/form_setup_html.php:328
+msgid "Show a Link to Download the File"
+msgstr "Mostrar un enlace de descarga del archivo"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:42
+msgid "Display an images with various ways."
+msgstr "Mostrar imágenes en varias formas."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:46
+msgid "Amiant Image Gallery"
+msgstr "Galería de Imágenes Amiant"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:51
+msgid "Choose Image/File"
+msgstr "elige imagen/archivo"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:52
+msgid "Please choose at least two images."
+msgstr "Por favor, elige al menos dos imágenes."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:53
+msgid "Please choose a file set."
+msgstr "Por favor, elige un grupo de archivos."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:54
+msgid "Please set the width and height of block container."
+msgstr "Por favor indica el ancho y el alto del bloque contenedor."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:55
+msgid "Please set the maximum thumbnails count per page."
+msgstr "Indica el número máximo de miniaturas por página."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:56
+msgid "Please set the maximum thumbnail width."
+msgstr "Por favor, indica el ancho máximo de las miniaturas."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:57
+msgid "Please set the maximum thumbnail height."
+msgstr "Por favor, indica el ancho máximo de las miniaturas."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:58
+msgid "Please select at least one item to display in the pop-up bubble, or disable this option."
+msgstr "Por favor, selecciona al menos un item para mostrar en la burbuja emergente, o desactiva esta opción."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:59
+msgid "Maximum number of thumbnails on a page should be not more than 50."
+msgstr "Número máximo de miniaturas por página no debería ser mayor de 50."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:60
+msgid "Maximum width of thumbnail should be not less than 70."
+msgstr "El ancho máximo de las miniaturas no debería ser menor de 70."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:61
+msgid "Maximum height of thumbnail should be not less than 70."
+msgstr "La altura máxima de las miniaturas no debería ser menor de 70."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:62
+msgid "The Maximum Thumbnails per Page must contain only digits."
+msgstr "El número de máximo de miniaturas por página sólo puede contenedr números."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:63
+msgid "The Maximum Thumbnail Width must contain only digits."
+msgstr "El ancho máximo de las miniaturas sólo puede contener números."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/controller.php:64
+msgid "The Maximum Thumbnail Height must contain only digits."
+msgstr "La altura máxima de las miniaturas sólo puede contener números."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/view.php:78
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/view.php:176
+msgid "Name"
+msgstr "Nombre"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/view.php:80
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/view.php:178
+msgid "Size"
+msgstr "Tamaño"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/view.php:81
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/view.php:179
+msgid "Download"
+msgstr "Descargar"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/view.php:127
+msgid "Content disabled in Edit Mode."
+msgstr "Contenido deshabilitado en modo edición."
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/view.php:144
+msgid "Previous"
+msgstr "Anterior"
+
+#: /home/raven/wwwroot/valuter.ru/blocks/Amiant_Gallery/view.php:146
+msgid "Next"
+msgstr "Siguiente"
+

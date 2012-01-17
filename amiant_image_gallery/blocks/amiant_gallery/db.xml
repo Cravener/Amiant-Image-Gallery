@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+
+	<table name="btAmiantGallery">
+		<field name="bID" type="I">
+			<key />
+			<unsigned />
+		</field>
+		<field name="fsID" type="I"><unsigned /></field>
+		<field name="maxHeight" type="I"><unsigned /></field>
+		<field name="height" type="I"><unsigned /></field>
+		<field name="width" type="I"><unsigned /></field>
+		<field name="title" type="C" size="255" />
+		<field name="continuous" type="I"><unsigned /></field>
+		<field name="autoSlide" type="I"><unsigned /></field>
+		<field name="pause" type="I"><unsigned /></field>
+		<field name="transitionFX" type="I"><unsigned /></field>
+		<field name="speed" type="I"><unsigned /></field>
+		<field name="pauseOnMouseHover" type="I"><unsigned /></field>
+		<field name="showAsThumbnails" type="I"><unsigned /></field>
+		<field name="maxThumbnailWidth" type="I"><unsigned /></field>
+		<field name="maxThumbnailHeight" type="I"><unsigned /></field>
+		<field name="maxThumbnailsPerPage" type="I"><unsigned /></field>
+		<field name="addThumbnailTitleAttr" type="I"><unsigned /></field>
+		<field name="displayThumbnailBubblePopup" type="I"><unsigned /></field>
+		<field name="displayThumbnailCaption" type="I"><unsigned /></field>
+		<field name="displayThumbnailFileName" type="I"><unsigned /></field>
+		<field name="displayThumbnailFileType" type="I"><unsigned /></field>
+		<field name="displayThumbnailFileSize" type="I"><unsigned /></field>
+		<field name="displayThumbnailDownloadLink" type="I"><unsigned /></field>
+		<field name="alignSlideToCenter" type="I"><unsigned /></field>
+		<field name="displaySlideInformation" type="I"><unsigned /></field>
+		<field name="displaySlideCaption" type="I"><unsigned /></field>
+		<field name="displaySlideFileName" type="I"><unsigned /></field>
+		<field name="displaySlideFileType" type="I"><unsigned /></field>
+		<field name="displaySlideFileSize" type="I"><unsigned /></field>
+		<field name="displaySlideDownloadLink" type="I"><unsigned /></field>
+		<field name="enableZoomMode" type="I"><unsigned /></field>
+		<field name="zoomModeEffect" type="I"><unsigned /></field>
+		<field name="zoomModeEffectSpeed" type="I"><unsigned /></field>
+		<field name="zoomModeShowCloseButton" type="I"><unsigned /></field>
+		<field name="zoomModeShowNavArrows" type="I"><unsigned /></field>
+		<field name="zoomModeEnableEscButton" type="I"><unsigned /></field>
+		<field name="zoomModeMaxWidth" type="I"><unsigned /></field>
+		<field name="zoomModeMaxHeight" type="I"><unsigned /></field>
+		<field name="zoomModeDisplayInformation" type="I"><unsigned /></field>
+		<field name="zoomModeDisplayCaption" type="I"><unsigned /></field>
+		<field name="zoomModeDisplayImageIndex" type="I"><unsigned /></field>
+		<field name="zoomModeInformationPosition" type="I"><unsigned /></field>
+		<field name="zoomModeShowOverlay" type="I"><unsigned /></field>
+		<field name="zoomModeOverlayOpacity" type="C" size="3" />
+		<field name="zoomModeOverlayColor" type="C" size="7" />
+		<field name="zoomModeHideOnOverlayClick" type="I"><unsigned /></field>
+		<field name="zoomModeHideOnContentClick" type="I"><unsigned /></field>
+		<field name="zoomModeCenterOnScroll" type="I"><unsigned /></field>
+		<field name="zoomModeCyclic" type="I"><unsigned /></field>
+		<field name="zoomModeAutoScale" type="I"><unsigned /></field>
+	</table>
+	
+	<table name="btAmiantGalleryImg">
+		<field name="imgId" type="I">
+			<key />
+			<autoincrement />
+			<unsigned />
+		</field>
+		<field name="bID" type="I"><unsigned /></field>
+		<field name="fID" type="I"><unsigned /></field>
+		<field name="url" type="C" size="255" />
+		<field name="caption" type="X" />
+		<field name="position" type="I"><unsigned /></field>
+		<field name="imgHeight" type="I"><unsigned /></field>
+	</table>
+	
+</schema>
