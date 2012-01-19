@@ -123,6 +123,10 @@
 			prev:   '#AmiantImageGallerySlideControllPrev<?php  echo $bID?>',
 			before: beforeSlide<?php  echo $bID?>,
 			after: afterSlide<?php  echo $bID?>,
+			<?php if ($enableSlidesPager) { ?>
+			pager: '#AmiantImageGallerySlideControllNav<?php echo $bID?>',
+			pagerAnchorBuilder: pagerFactory,
+			<?php } ?>
 			end: endSlideshow<?php  echo $bID?>
 		});
 	}
@@ -181,6 +185,12 @@
 	function endSlideshow<?php  echo $bID?>(options) {
 		
 	}
+	
+	<?php if ($enableSlidesPager) { ?>
+    function pagerFactory(idx, slide) {
+		return '<li><a href="#">'+(idx+1)+'</a></li>';
+    };
+	<?php } ?>
 	
 	<?php  if ($enableZoomMode) { ?>
 	

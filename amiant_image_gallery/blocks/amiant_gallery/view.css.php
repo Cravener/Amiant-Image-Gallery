@@ -7,6 +7,11 @@
 	margin: 0 auto;
 }
 
+.AmiantImageGalleryBlock<?php  echo $bID?> .AmiantImageGalleryTitle {
+	font-weight: bold;
+	font-size: 18px;
+}
+
 .AmiantImageGallery<?php  echo $bID?>{
 	width: <?php  echo $width?>px;
 	height: <?php  echo $height+25;?>px;
@@ -62,12 +67,11 @@
 }
 
 .AmiantImageGalleryBlockControlBar<?php  echo $bID?> {
-	height: 30px;
-	background: #EEEEEE;
-	-moz-border-radius: 7px;
-	-webkit-border-radius: 7px;
-	border-radius: 7px;
+	margin: 5px 0px 5px 0px;
+	background: #F5F5F5;
+	border: 1px solid #EEEEEE;
 	padding: 3px;
+	-webkit-box-shadow: 2px 2px 5px #CCCCCC;
 	clear: both;
 }
 
@@ -211,6 +215,39 @@
 	margin-left: 10px;
 	float: left;
 }
+
+.AmiantImageGallerySlideControllNav<?php echo $bID?> { margin: 10px; position: relative }
+.AmiantImageGallerySlideControllNav<?php echo $bID?> li { float: left; list-style: none}
+
+.AmiantImageGallerySlideControllNav<?php echo $bID?> a {
+	margin: 2px 1px 3px 0px;
+	padding: 3px 5px;
+	border: 1px solid #CCCCCC;
+	background: #FFFFFF;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 1px 1px 5px #CCCCCC;
+	-webkit-box-shadow: 1px 1px 5px #CCCCCC;
+	box-shadow: 1px 1px 5px #CCCCCC;
+	text-decoration: none;
+}
+
+.AmiantImageGallerySlideControllNav<?php echo $bID?> a:hover {
+	margin: 5px 1px 0px 0px;
+	background: #F0F0F0;
+	box-shadow: none;
+}
+
+.AmiantImageGallerySlideControllNav<?php echo $bID?> li a.activeSlide {
+	margin: 5px 1px 0px 0px;
+	background: #555555;
+	border: none;
+	box-shadow: none;
+	color: #FFFFFF;
+}
+
+.AmiantImageGallerySlideControllNav<?php echo $bID?> a:focus { outline: none; }
 
 .ig_pagination {clear: both; padding: 5px;}
 .ig_pagination_controls {float: right;}

@@ -35,6 +35,7 @@
 		<field name="displaySlideFileType" type="I"><unsigned /></field>
 		<field name="displaySlideFileSize" type="I"><unsigned /></field>
 		<field name="displaySlideDownloadLink" type="I"><unsigned /></field>
+		<field name="enableSlidesPager" type="I"><unsigned /></field>
 		<field name="enableZoomMode" type="I"><unsigned /></field>
 		<field name="zoomModeEffect" type="I"><unsigned /></field>
 		<field name="zoomModeEffectSpeed" type="I"><unsigned /></field>

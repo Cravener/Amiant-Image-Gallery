@@ -9,15 +9,33 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 ?>
 <style type="text/css">
 #AmiantImageGalleryBlock-imgRows a{cursor:pointer}
-#AmiantImageGalleryBlock-imgRows .AmiantImageGalleryBlock-imgRow,
-#AmiantImageGalleryBlock-fsRow {margin-bottom:16px;clear:both;padding:7px;background-color:#eee}
+#AmiantImageGalleryBlock-imgRows .AmiantImageGalleryBlock-imgRow, #AmiantImageGalleryBlock-fsRow {
+	margin-bottom: 7px;
+	clear: both;
+	padding: 7px;
+	border: 1px solid #EEEEEE;
+	background-color: #F5F5F5;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 2px 2px 4px #CCCCCC;
+	-webkit-box-shadow: 2px 2px 4px #CCCCCC;
+	box-shadow: 2px 2px 4px #CCCCCC;
+}
 #AmiantImageGalleryBlock-imgRows .AmiantImageGalleryBlock-imgRow a.moveUpLink{ display:block; background:url(<?php  echo DIR_REL?>/concrete/images/icons/arrow_up.png) no-repeat center; height:10px; width:16px; }
 #AmiantImageGalleryBlock-imgRows .AmiantImageGalleryBlock-imgRow a.moveDownLink{ display:block; background:url(<?php  echo DIR_REL?>/concrete/images/icons/arrow_down.png) no-repeat center; height:10px; width:16px; }
 #AmiantImageGalleryBlock-imgRows .AmiantImageGalleryBlock-imgRow a.moveUpLink:hover{background:url(<?php  echo DIR_REL?>/concrete/images/icons/arrow_up_black.png) no-repeat center;}
 #AmiantImageGalleryBlock-imgRows .AmiantImageGalleryBlock-imgRow a.moveDownLink:hover{background:url(<?php  echo DIR_REL?>/concrete/images/icons/arrow_down_black.png) no-repeat center;}
 #AmiantImageGalleryBlock-imgRows .cm-slideshowBlock-imgRowIcons{ float:right; width:35px; text-align:left; }
-#ccm-gallery-options-tab input, #ccm-gallery-options-tab select, #ccm-gallery-options-tab label{margin-top: 5px;}
+
 .required_field {color: #FF0000; font-weight: bold;}
+
+.items-group-separator {
+	height: 1px;
+	width: 100%;
+	border-bottom: 1px dashed #CCCCCC;
+	margin: 10px 0px 10px 0px;
+}
 
 #colorSelector {
 	width: 36px;
@@ -33,22 +51,6 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 	width: 28px;
 	position: absolute;
 }
-
-.ui-slider { position: relative; text-align: left; margin-top: 5px; }
-.ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 1.2em; height: 1.2em; cursor: default; }
-.ui-slider .ui-slider-range { position: absolute; z-index: 1; font-size: .7em; display: block; border: 0; background-position: 0 0; }
-
-.ui-slider-horizontal { height: .8em; }
-.ui-slider-horizontal .ui-slider-handle { top: -.3em; margin-left: -.6em; }
-.ui-slider-horizontal .ui-slider-range { top: 0; height: 100%; }
-.ui-slider-horizontal .ui-slider-range-min { left: 0; }
-.ui-slider-horizontal .ui-slider-range-max { right: 0; }
-
-.ui-slider-vertical { width: .8em; height: 100px; }
-.ui-slider-vertical .ui-slider-handle { left: -.3em; margin-left: 0; margin-bottom: -.6em; }
-.ui-slider-vertical .ui-slider-range { left: 0; width: 100%; }
-.ui-slider-vertical .ui-slider-range-min { bottom: 0; }
-.ui-slider-vertical .ui-slider-range-max { top: 0; }
 </style>
 
 
@@ -70,7 +72,7 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 				$("#thumbnails_set_off_warning").show();
 			}
 			
-			if ($("#enableZoomMode").attr('checked')) {
+			if ($("#enableZoomMode").attr('checked') && $("#showAsThumbnails").attr('checked')) {
 				$("#zoommode_set_off_warning").hide();
 			} else {
 				$("#zoommode_set_off_warning").show();
@@ -153,7 +155,7 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 	
 </script>
 
-<ul class="ccm-dialog-tabs" id="ccm-gallery-tabs">
+<ul class="ccm-dialog-tabs" id="ccm-gallery-tabs" style="margin: 0px 0px 10px 0px;">
 	<li class="ccm-nav-active"><a href="javascript:void(0)" id="ccm-gallery-type"><?php  echo t('Images')?></a></li>
 	<li><a href="javascript:void(0)" id="ccm-gallery-options"><?php  echo t('Gallery Options')?></a></li>
 	<li><a href="javascript:void(0)" id="ccm-thumbnail-options"><?php  echo t('Thumbnail Options')?></a></li>
@@ -164,23 +166,20 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 
 <div id="ccm-gallery-type-tab" style="margin-top:15px">
 	<div id="newImg">
-		<table cellspacing="0" cellpadding="0" border="0" width="100%">
-			<tr>
-				<td>
-					<strong><?php  echo t('Type')?></strong>
-					<select name="type" style="vertical-align: middle">
-						<option value="CUSTOM"<?php   if ($type == 'CUSTOM') { ?> selected<?php   } ?>><?php  echo t('Custom Slideshow')?></option>
-						<option value="FILESET"<?php   if ($type == 'FILESET') { ?> selected<?php   } ?>><?php  echo t('Pictures from File Set')?></option>
-					</select>
-				</td>
-			</tr>
-			<tr style="padding-top: 8px">
-				<td>
-					<br />
-					<span id="AmiantImageGalleryBlock-chooseImg"><?php  echo $ah->button_js(t('Add Image'), 'AmiantImageGalleryBlock.chooseImg()', 'left');?></span>
-				</td>
-			</tr>
-		</table>
+		<div class="row">
+			<div class="span5">
+				<strong><?php  echo t('Type')?></strong>
+				<select name="type" style="vertical-align: middle">
+					<option value="CUSTOM"<?php   if ($type == 'CUSTOM') { ?> selected<?php   } ?>><?php  echo t('Custom Slideshow')?></option>
+					<option value="FILESET"<?php   if ($type == 'FILESET') { ?> selected<?php   } ?>><?php  echo t('Pictures from File Set')?></option>
+				</select>
+			</div>
+		</div>
+		<div class="row" style="margin: 10px 0px 10px 25px;">
+			<div class="span5">
+				<span id="AmiantImageGalleryBlock-chooseImg"><?php  echo $ah->button_js(t('Add Image'), 'AmiantImageGalleryBlock.chooseImg()', 'left');?></span>
+			</div>
+		</div>
 	</div>
 	<br/>
 	
@@ -235,314 +234,483 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 
 <div id="ccm-gallery-options-tab" style="display:none; margin-top: 15px;">
 <div id="AmiantImageGalleryOptions">
-	<h2><?php  echo t('Amiant Image Gallery Options'); ?></h2>
-
-	<div class="ccm-block-field-group">
-		<?php  echo $form->label('title', t('Gallery Title:'));?>&nbsp;
-		<?php  echo $form->text('title', $title, array('style' => 'width: 350px;'));?>
-	</div>
-	<div class="ccm-block-field-group">
-		<table style="width: 100%">
-			<tr>
-				<td style="vertical-align: top;">
-					<?php  echo $form->label('width', t('Width:'));?>&nbsp;
-					<?php  echo $form->text('width', $width, array('style' => 'width: 50px;'));?>
-					<?php  echo $form->label('height', t('Height:'));?>&nbsp;
-					<?php  echo $form->text('height', $height, array('style' => 'width: 50px;'));?>
-				</td>
-				<td style="vertical-align: top;">
-					<div class="ccm-note"><?php  echo t('This is a size of Amiant Image Gallery block container.'); ?></div>
-					<div class="ccm-note"><?php  echo t('Must be set to same size as images or higher <span class="required_field">(required)</span>.'); ?></div>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<div class="ccm-block-field-group">
-		<?php  echo $form->checkbox('showAsThumbnails', 1, $showAsThumbnails); ?>
-		<?php  echo $form->label('showAsThumbnails', t('Show As Thumbnails'));?>
-		<?php  if ($showAsThumbnails) { ?>
-		<div id="zoomMode-div">
-		<?php  } else {?>
-		<div id="zoomMode-div" style="display: none;">
-		<?php  } ?>
-			<br />
-			<?php  echo $form->checkbox('enableZoomMode', 1, $enableZoomMode); ?>
-			<?php  echo $form->label('enableZoomMode', t('Enable Zoom Mode'));?>
+	<h2 class="span10"><?php  echo t('Amiant Image Gallery Options'); ?></h2>
+	<div class="row"></div>
+	<div class="row" style="margin-top: 10px;">
+		<div class="span13">
+			<div class="row">
+				<div class="span7">
+					<?php  echo $form->label('title', t('Gallery Title:'));?>&nbsp;
+					<?php  echo $form->text('title', $title, array('style' => 'width: 250px;'));?>
+				</div>
+				<div class="span6">
+					<span class="label notice"><?php echo t('Notice'); ?></span>
+					<?php echo t('Will be showed only if the title field not empty.'); ?>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="ccm-block-field-group">
-		<table style="width: 100%">
-			<tr>
-				<td style="vertical-align: top;">
-					<?php  echo $form->label('transitionFX', t('Transition Type'));?>
+	
+	<div class="items-group-separator"></div>
+	
+	<div class="row">
+		<div class="span11">
+			<div class="row">
+				<div class="span5">
+					<div class="row">
+						<div class="span5">
+							<?php  echo $form->label('width', t('Width:'));?>&nbsp;
+							<input type="number" name="width" id="width" value="<?php echo $width; ?>" style="width: 50px;" />
+							<span class="label important"><?php echo t('Required'); ?></span>
+						</div>
+						<div class="span5">
+							<?php  echo $form->label('height', t('Height:'));?>&nbsp;
+							<input type="number" name="height" id="height" value="<?php echo $height; ?>" style="width: 50px;" />
+							<span class="label important"><?php echo t('Required'); ?></span>
+						</div>
+					</div>
+				</div>
+				<div class="span6">
+					<p><?php  echo t('This is a size of Amiant Image Gallery block container.'); ?></p>
+					<p><?php  echo t('Must be set to same size as images or higher.'); ?></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="items-group-separator"></div>
+	
+	<div class="row">
+		<div class="span5">
+			<?php  echo $form->checkbox('showAsThumbnails', 1, $showAsThumbnails); ?>
+			<?php  echo t('Show As Thumbnails');?>
+		</div>
+	</div>
+		
+	<?php  if ($showAsThumbnails) { ?>
+	<div class="row" id="zoomMode-div">
+	<?php  } else {?>
+	<div class="row" id="zoomMode-div" style="display: none;">
+	<?php  } ?>
+		<div class="span5">
+			<?php  echo $form->checkbox('enableZoomMode', 1, $enableZoomMode); ?>
+			<?php  echo t('Enable Zoom Mode');?>
+		</div>
+	</div>
+
+	
+	<div class="items-group-separator"></div>
+	
+	<div class="row">
+		<div class="span10">
+			<div class="row">
+				<div class="span5">
+					<?php  echo $form->label('transitionFX', t('Transition Type').':');?>
 					<?php  echo $form->select('transitionFX',
 					array('blindX', 'blindY', 'blindZ', 'cover', 'curtainX', 'curtainY', 'fade', 'fadeZoom', 'growX', 'growY', 'none', 'scrollUp', 'scrollDown', 'scrollLeft', 'scrollRight', 'scrollHorz', 'scrollVert', 'shuffle', 'slideX', 'slideY', 'toss', 'turnUp', 'turnDown', 'turnLeft', 'turnRight', 'uncover', 'wipe', 'zoom'), $transitionFX, array('style' => 'width: 120px'));?>
-				</td>
-				<td style="vertical-align: top;">
+				</div>
+				<div class="span5">
 					<?php  echo $form->label('speed', t('Transition speed:'));?>
-					<?php  echo $form->text('speed', $speed, array('style' => 'width: 40px'));?>
+					<input type="number" name="speed" id="speed" value="<?php echo $speed; ?>" style="width: 50px;" />
 					<?php  echo t('milliseconds.');?>
-				</td>
-			</tr>
-		</table>
-		
+				</div>
+			</div>
+		</div>
 	</div>
-	<div class="ccm-block-field-group">
-		<table style="width: 100%">
-			<tr>
-				<td style="vertical-align: top;">
+	
+	<div class="items-group-separator"></div>
+	
+	<div class="row">
+		<div class="span12">
+			<div class="row">
+				<div class="span2">
 					<?php  echo $form->checkbox('autoSlide', 1, $autoSlide); ?>
-					<?php  echo $form->label('autoSlide', t('Auto Play'));?>
-				</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top;">
+					<?php  echo t('Auto Play');?>
+				</div>
+				<div class="span5">
 					<?php  echo $form->checkbox('pauseOnMouseHover', 1, $pauseOnMouseHover); ?>
-					<?php  echo $form->label('pauseOnMouseHover', t('Pause slideshow on mouse hover'));?>
-				</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top;">
+					<?php  echo t('Pause slideshow on mouse hover');?>
+				</div>
+				<div class="span5">
 					<?php  echo $form->checkbox('continuous', 1, $continuous); ?>
-					<?php  echo $form->label('continuous', t('Loop images continuously'));?>
-				</td>
-			</tr>
-			<tr>
-				<td style="vertical-align: top;">
-					<?php  echo $form->label('pause', t('Duration of each slide:'));?>
-					<?php  echo $form->text('pause', ($pause/1000), array('style' => 'width: 40px'));?>
-					<?php  echo t('seconds.');?>
-				</td>
-			</tr>
-		</table>
+					<?php  echo t('Loop images continuously');?>
+				</div>
+			</div>
+		</div>
 	</div>
+	
+	<div class="items-group-separator"></div>
+	
+	<div class="row">
+		<div class="span10">
+			<?php  echo t('Duration of each slide:');?>
+			<input type="number" name="pause" id="pause" value="<?php echo ($pause/1000); ?>" style="width: 50px;" />
+			<?php  echo t('seconds.');?>
+		</div>
+	</div>
+	
 </div>
 </div>
 
-<div id="ccm-thumbnail-options-tab" style="display:none; margin-top: 15px;">
+<div id="ccm-thumbnail-options-tab" class="row" style="display:none; margin-top: 15px;">
 <div id="AmiantImageGalleryThumbnailOptions">
-	<h2><?php  echo t('Thumbnail Options'); ?></h2>
-	<div style="font-size: 10px; color: red;" id="thumbnails_set_off_warning"><?php  echo t('Please turn on "Show As Thumbnails" option on the "Gallery Options" tab, if you want to activate the options below.'); ?></div>
-	<br />
+	<h2 class="span13"><?php  echo t('Thumbnail Options'); ?></h2>
+	<div class="span13" id="thumbnails_set_off_warning">
+		<div class="alert-message warning">
+			<p><?php  echo t('Please turn on "Show As Thumbnails" option on the "Gallery Options" tab, if you want to activate the options below.'); ?></p>
+		</div>
+	</div>
 	
-	<div class="ccm-block-field-group">
-		<div id="thumbnailsOptions">
-			<table style='width: 100%;'>
-				<tr>
-					<td style='width: 200px; text-align: right; padding-right: 5px;'>
-						<?php  echo $form->label('maxThumbnailsPerPage', t('Maximum Thumbnails per page:'));?>
-					</td>
-					<td>
-						<?php  echo $form->text('maxThumbnailsPerPage', $maxThumbnailsPerPage, array('style' => 'width: 50px;'));?>
-						<span class='required_field'><?php  echo t('(required)'); ?></span>
-					</td>
-				</tr>
-				<tr>
-					<td style='width: 200px; text-align: right; padding-right: 5px;'>
-						<?php  echo $form->label('maxThumbnailWidth', t('Maximum Thumbnail Width:'));?>
-					</td>
-					<td>
-						<?php  echo $form->text('maxThumbnailWidth', $maxThumbnailWidth, array('style' => 'width: 50px;'));?>
-						<span class='required_field'><?php  echo t('(required)'); ?></span>
-					</td>
-				</tr>
-				<tr>
-					<td style='width: 200px; text-align: right; padding-right: 5px;'>
-						<?php  echo $form->label('maxThumbnailHeight', t('Maximum Thumbnail Height:'));?>
-					</td>
-					<td>
-						<?php  echo $form->text('maxThumbnailHeight', $maxThumbnailHeight, array('style' => 'width: 50px;'));?>
-						<span class='required_field'><?php  echo t('(required)'); ?></span>
-					</td>
-				</tr>
-			</table>
+	<div class="row"></div>
+	<div class="row" style="margin-top: 10px;">
+		<div id="thumbnailsOptions" class="span10">
+
+			<div class="row">
+				<div class="span10">
+					<div class="row">
+						<label for="maxThumbnailsPerPage" class="span4"><?php echo t('Maximum Thumbnails per page:'); ?></label>
+						<div class="span6">
+							<input type="number" name="maxThumbnailsPerPage" id="maxThumbnailsPerPage" value="<?php echo $maxThumbnailsPerPage; ?>" style="width: 50px;" />
+							<span class="label important"><?php  echo t('Required'); ?></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="span10">
+					<div class="row">
+						<label for="maxThumbnailWidth" class="span4"><?php echo t('Maximum Thumbnail Width:'); ?></label>
+						<div class="span6">
+							<input type="number" name="maxThumbnailWidth" id="maxThumbnailWidth" value="<?php echo $maxThumbnailWidth; ?>" style="width: 50px;" />
+							<span class="label important"><?php  echo t('Required'); ?></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="span10">
+					<div class="row">
+						<label for="maxThumbnailHeight" class="span4"><?php echo t('Maximum Thumbnail Height:'); ?></label>
+						<div class="span6">
+							<input type="number" name="maxThumbnailHeight" id="maxThumbnailHeight" value="<?php echo $maxThumbnailHeight; ?>" style="width: 50px;" />
+							<span class="label important"><?php  echo t('Required'); ?></span>
+						</div>
+					</div>
+				</div>
+			</div>
+						
 		</div>
 	</div>
-	<div class="ccm-block-field-group">
-		<?php  echo $form->checkbox('addThumbnailTitleAttr', 1, $addThumbnailTitleAttr); ?>
-		<?php  echo $form->label('addThumbnailTitleAttr', t('Add Title Attribute to IMG tag for thumbnails'));?>
-	</div>
-	<div class="ccm-block-field-group">
-		<?php  echo $form->checkbox('displayThumbnailBubblePopup', 1, $displayThumbnailBubblePopup); ?>
-		<?php  echo $form->label('displayThumbnailBubblePopup', t('Show Pop-up Bubble with Information for Thumbnails'));?><br />
-		
-		<div id="thumbnailPopupBubbleOptions" style="padding: 10px;">
-			<?php  echo $form->checkbox('displayThumbnailCaption', 1, $displayThumbnailCaption); ?>
-			<?php  echo $form->label('displayThumbnailCaption', t('Show File Caption in a Pop-up Bubble'));?><br />
-		
-			<?php  echo $form->checkbox('displayThumbnailFileName', 1, $displayThumbnailFileName); ?>
-			<?php  echo $form->label('displayThumbnailFileName', t('Show File Name in a Pop-up Bubble'));?><br />
-		
-			<?php  echo $form->checkbox('displayThumbnailFileType', 1, $displayThumbnailFileType); ?>
-			<?php  echo $form->label('displayThumbnailFileType', t('Show File Type in a Pop-up Bubble'));?><br />
-		
-			<?php  echo $form->checkbox('displayThumbnailFileSize', 1, $displayThumbnailFileSize); ?>
-			<?php  echo $form->label('displayThumbnailFileSize', t('Show File Size in a Pop-up Bubble'));?><br />
-		
-			<?php  echo $form->checkbox('displayThumbnailDownloadLink', 1, $displayThumbnailDownloadLink); ?>
-			<?php  echo $form->label('displayThumbnailDownloadLink', t('Show a Link to Download the File in a Pop-up Bubble'));?>
+	
+	<div class="row">
+		<div class="span10" style="padding: 15px 0px 5px 25px;">
+			<?php  echo $form->checkbox('addThumbnailTitleAttr', 1, $addThumbnailTitleAttr); ?>
+			<?php echo t('Add Title Attribute to IMG tag for thumbnails'); ?>
 		</div>
 	</div>
+	
+	<div class="row">
+		<div class="span10" style="padding: 5px 0px 5px 25px;">
+			<?php  echo $form->checkbox('displayThumbnailBubblePopup', 1, $displayThumbnailBubblePopup); ?>
+			<?php echo t('Show Pop-up Bubble with Information for Thumbnails'); ?>
+		</div>
+	</div>
+	
+
+	<div class="row">
+		<div class="span10" id="thumbnailPopupBubbleOptions" style="padding: 10px;">
+			<div class="row">
+				<div class="span10" style="padding: 5px 0px 0px 25px;">
+				<?php  echo $form->checkbox('displayThumbnailCaption', 1, $displayThumbnailCaption); ?>
+				<?php  echo t('Show File Caption in a Pop-up Bubble');?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span10" style="padding: 5px 0px 0px 25px;">
+				<?php  echo $form->checkbox('displayThumbnailFileName', 1, $displayThumbnailFileName); ?>
+				<?php  echo t('Show File Name in a Pop-up Bubble');?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span10" style="padding: 5px 0px 0px 25px;">
+				<?php  echo $form->checkbox('displayThumbnailFileType', 1, $displayThumbnailFileType); ?>
+				<?php  echo t('Show File Type in a Pop-up Bubble');?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span10" style="padding: 5px 0px 0px 25px;">
+				<?php  echo $form->checkbox('displayThumbnailFileSize', 1, $displayThumbnailFileSize); ?>
+				<?php  echo t('Show File Size in a Pop-up Bubble');?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span10" style="padding: 5px 0px 0px 25px;">
+				<?php  echo $form->checkbox('displayThumbnailDownloadLink', 1, $displayThumbnailDownloadLink); ?>
+				<?php  echo t('Show a Link to Download the File in a Pop-up Bubble'); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	
 </div>
 </div>
 
-<div id="ccm-slide-options-tab" style="display:none; margin-top: 15px;">
+<div id="ccm-slide-options-tab" class="row" style="display:none; margin-top: 15px;">
 <div id="AmiantImageGallerySlideOptions">
-	<h2><?php  echo t('Slide Options'); ?></h2>
-	<br />
-	
-	<div class="ccm-block-field-group">
-		<?php  echo $form->checkbox('alignSlideToCenter', 1, $alignSlideToCenter); ?>
-		<?php  echo $form->label('alignSlideToCenter', t('Align the image in the center of the block'));?>
-	</div>
-	<div class="ccm-block-field-group">
-		<?php  echo $form->checkbox('displaySlideInformation', 1, $displaySlideInformation); ?>
-		<?php  echo $form->label('displaySlideInformation', t('Show information about the image on the slide'));?><br />
-		
-		<div id="slideInformationOptions" style="padding: 10px;">
-			<?php  echo $form->checkbox('displaySlideCaption', 1, $displaySlideCaption); ?>
-			<?php  echo $form->label('displaySlideCaption', t('Show File Caption'));?><br />
-		
-			<?php  echo $form->checkbox('displaySlideFileName', 1, $displaySlideFileName); ?>
-			<?php  echo $form->label('displaySlideFileName', t('Show File Name'));?><br />
-		
-			<?php  echo $form->checkbox('displaySlideFileType', 1, $displaySlideFileType); ?>
-			<?php  echo $form->label('displaySlideFileType', t('Show File Type'));?><br />
-		
-			<?php  echo $form->checkbox('displaySlideFileSize', 1, $displaySlideFileSize); ?>
-			<?php  echo $form->label('displaySlideFileSize', t('Show File Size'));?><br />
-		
-			<?php  echo $form->checkbox('displaySlideDownloadLink', 1, $displaySlideDownloadLink); ?>
-			<?php  echo $form->label('displaySlideDownloadLink', t('Show a Link to Download the File'));?>
+	<h2 class="span13"><?php  echo t('Slide Options'); ?></h2>
+
+	<div class="row">
+		<div class="span10" style="padding: 15px 0px 5px 25px;">
+			<?php  echo $form->checkbox('alignSlideToCenter', 1, $alignSlideToCenter); ?>
+			<?php  echo t('Align the image in the center of the block'); ?>
 		</div>
 	</div>
+	
+	<div class="row">
+		<div class="span10" style="padding: 15px 0px 5px 25px;">
+			<?php  echo $form->checkbox('enableSlidesPager', 1, $enableSlidesPager); ?>
+			<?php  echo t('Show pager for slides'); ?>
+			<span class="label success">New</span>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="span10" style="padding: 15px 0px 5px 25px;">
+			<?php  echo $form->checkbox('displaySlideInformation', 1, $displaySlideInformation); ?>
+			<?php  echo t('Show information about the image on the slide');?>
+		</div>
+	</div>
+
+	<div id="slideInformationOptions" style="margin: 0px 100px 0px 25px; padding: 0px;">
+		<div class="row">
+			<div class="span10" style="padding: 5px 0px 0px 25px;">
+				<?php  echo $form->checkbox('displaySlideCaption', 1, $displaySlideCaption); ?>
+				<?php  echo t('Show File Caption');?><br />
+			</div>
+		</div>
+		<div class="row">
+			<div class="span10" style="padding: 5px 0px 0px 25px;">
+				<?php  echo $form->checkbox('displaySlideFileName', 1, $displaySlideFileName); ?>
+				<?php  echo t('Show File Name');?>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span10" style="padding: 5px 0px 0px 25px;">
+				<?php  echo $form->checkbox('displaySlideFileType', 1, $displaySlideFileType); ?>
+				<?php  echo t('Show File Type');?>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span10" style="padding: 5px 0px 0px 25px;">
+				<?php  echo $form->checkbox('displaySlideFileSize', 1, $displaySlideFileSize); ?>
+				<?php  echo t('Show File Size');?>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span10" style="padding: 5px 0px 0px 25px;">
+				<?php  echo $form->checkbox('displaySlideDownloadLink', 1, $displaySlideDownloadLink); ?>
+				<?php  echo t('Show a Link to Download the File');?>
+			</div>
+		</div>
+	</div>
+	
 </div>
 </div>
 
 <div id="ccm-zoom-options-tab" style="display:none; margin-top: 15px;">
 <div id="AmiantImageGalleryZoomOptions">
-	<h2><?php  echo t('Zoom Mode Options'); ?></h2>
-	<div style="font-size: 10px; color: red;" id="zoommode_set_off_warning"><?php  echo t('Please turn on "Show As Thumbnails" and "Enable Zoom Mode" options on the "Gallery Options" tab, if you want to activate the options below.'); ?></div>
-	<br />
-	
-	<div class="ccm-block-field-group">
-		<table style="width: 100%;">
-			<tr>
-				<td> 
-					<?php  echo $form->label('zoomModeEffect', t('Effect:'));?>
-					<?php  echo $form->select('zoomModeEffect', array('none', 'fade', 'elastic'), $zoomModeEffect, array('style' => 'width: 120px'));?>
-				</td>
-				<td>
-					<?php  echo $form->label('zoomModeEffectSpeed', t('Effect speed:'));?>
-					<?php  echo $form->text('zoomModeEffectSpeed', $zoomModeEffectSpeed, array('style' => 'width: 50px;')).' '.t('milliseconds.'); ?>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<div class="ccm-block-field-group">
-		<table style="width: 100%;">
-			<tr>
-				<td> 
-					<?php  echo $form->checkbox('zoomModeShowCloseButton', 1, $zoomModeShowCloseButton); ?>
-					<?php  echo $form->label('zoomModeShowCloseButton', t('Show Close Button'));?>
-				</td>
-				<td>
-					<?php  echo $form->checkbox('zoomModeShowNavArrows', 1, $zoomModeShowNavArrows); ?>
-					<?php  echo $form->label('zoomModeShowNavArrows', t('Show Navigation Arrows'));?>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<div class="ccm-block-field-group">
-		<table style="width: 100%;">
-			<tr>
-				<td> 
-					<?php  echo $form->checkbox('zoomModeShowOverlay', 1, $zoomModeShowOverlay); ?>
-					<?php  echo $form->label('zoomModeShowOverlay', t('Show Overlay'));?>
-					<br />
-					<?php  echo $form->checkbox('zoomModeHideOnOverlayClick', 1, $zoomModeHideOnOverlayClick); ?>
-					<?php  echo $form->label('zoomModeHideOnOverlayClick', t('Hide Overlay on Click'));?>
-					<br />
-					<?php  echo $form->checkbox('zoomModeHideOnContentClick', 1, $zoomModeHideOnContentClick); ?>
-					<?php  echo $form->label('zoomModeHideOnContentClick', t('Hide Overlay if Clicking the content'));?>
-					<br />
-					<?php  echo $form->checkbox('zoomModeEnableEscButton', 1, $zoomModeEnableEscButton); ?>
-					<?php  echo $form->label('zoomModeEnableEscButton', t('Enable Escape Button'));?>
-				</td>
-				<td>
-					<div style="width: 150px;">
-						<?php  echo t('Overlay Opacity:'); ?>
-						<span id="overlay-opacity-span"><?php  echo $zoomModeOverlayOpacity; ?></span>
-						<?php  echo $form->hidden('zoomModeOverlayOpacity', $zoomModeOverlayOpacity); ?>
-						<div id="overlay-opacity-slider"></div>
-						<br />
-						<div style="position: relative; display: block;">
-							<?php  echo $form->hidden('zoomModeOverlayColor', $zoomModeOverlayColor); ?>
-							<?php  echo t('Overlay Color:'); ?>
-							<div id="colorSelector"><div style="background-color: <?php  echo $zoomModeOverlayColor; ?>;"></div></div>
-						</div>
-					</div>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<div class="ccm-block-field-group">
-		<table style="width: 100%">
-			<tr>
-				<td>
-					<?php  echo $form->checkbox('zoomModeCenterOnScroll', 1, $zoomModeCenterOnScroll); ?>
-					<?php  echo $form->label('zoomModeCenterOnScroll', t('Center Image On Page Scroll'));?>
-					<br />
-					<?php  echo $form->checkbox('zoomModeCyclic', 1, $zoomModeCyclic); ?>
-					<?php  echo $form->label('zoomModeCyclic', t('Cyclic View'));?>
-					<br />
-					<?php  echo $form->checkbox('zoomModeAutoScale', 1, $zoomModeAutoScale); ?>
-					<?php  echo $form->label('zoomModeAutoScale', t('Auto Scale to fit in Viewport'));?>
-					<br />
-				</td>
-				<td>
-					<table style="width: 100%;">
-						<tr>
-							<td style="padding: 1px;">
-								<?php  echo $form->label('zoomModeMaxWidth', t('Max Image Width:'));?>
-							</td>
-							<td style="padding: 1px;">
-								<?php  echo $form->text('zoomModeMaxWidth', $zoomModeMaxWidth, array('style' => 'width: 50px;')).' '.t('pixels.'); ?>
-							</td>
-						</tr>
-						<tr>
-							<td style="padding: 1px;">
-								<?php  echo $form->label('zoomModeMaxHeight', t('Max Image Height:'));?>
-							</td>
-							<td style="padding: 1px;">
-								<?php  echo $form->text('zoomModeMaxHeight', $zoomModeMaxHeight, array('style' => 'width: 50px;')).' '.t('pixels.'); ?>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
-	</div>
-	<div class="ccm-block-field-group">
-		<?php  echo $form->checkbox('zoomModeDisplayInformation', 1, $zoomModeDisplayInformation); ?>
-		<?php  echo $form->label('zoomModeDisplayInformation', t('Display Information About Image'));?>
-		<div id="zoom-mode-image-information-settings" style="padding: 10px;">
-			<?php  echo $form->checkbox('zoomModeDisplayCaption', 1, $zoomModeDisplayCaption); ?>
-			<?php  echo $form->label('zoomModeDisplayCaption', t('Display Image Caption'));?>
-			<br />
-			<?php  echo $form->checkbox('zoomModeDisplayImageIndex', 1, $zoomModeDisplayImageIndex); ?>
-			<?php  echo $form->label('zoomModeDisplayImageIndex', t('Display Image Index Counter'));?>
-			<br />
-			<?php  echo $form->label('zoomModeInformationPosition', t('Information Position:'));?>
-			<?php  echo $form->select('zoomModeInformationPosition', array('inside', 'outside', 'over'), $zoomModeInformationPosition, array('style' => 'width: 120px'));?>
+
+	<h2 class="span10"><?php  echo t('Zoom Mode Options'); ?></h2>
+	<div class="span13" id="zoommode_set_off_warning">
+		<div class="alert-message warning">
+			<p><?php  echo t('Please turn on "Show As Thumbnails" and "Enable Zoom Mode" options on the "Gallery Options" tab, if you want to activate the options below.'); ?></p>
 		</div>
 	</div>
 	
+	<div class="row"></div>
+	<div class="row" style="margin-top 10px;">
+		<div class="span10">
+			<div class="row">
+				<div class="span5">
+					<?php  echo $form->label('zoomModeEffect', t('Effect:'));?>
+					<?php  echo $form->select('zoomModeEffect', array('none', 'fade', 'elastic'), $zoomModeEffect, array('style' => 'width: 120px'));?>
+				</div>
+				<div class="span5">
+					<?php  echo $form->label('zoomModeEffectSpeed', t('Effect speed:'));?>
+					<input type="number" id="zoomModeEffectSpeed" name="zoomModeEffectSpeed" value="<?php echo $zoomModeEffectSpeed; ?>" min="0" style="width: 50px;" />
+					<?php  echo t('milliseconds.'); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="items-group-separator"></div>
+	
+	<div class="row">
+		<div class="span10">
+			<div class="row">
+				<div class="span5">
+					<?php  echo $form->checkbox('zoomModeShowCloseButton', 1, $zoomModeShowCloseButton); ?>
+					<?php  echo t('Show Close Button');?>
+				</div>
+				<div class="span5">
+					<?php  echo $form->checkbox('zoomModeShowNavArrows', 1, $zoomModeShowNavArrows); ?>
+					<?php  echo t('Show Navigation Arrows');?>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="items-group-separator"></div>
+	
+	<div class="row">
+		<div class="span13">
+			<div class="row">
+				
+				<div class="span5">
+					<div class="row">
+						<div class="span5">
+							<?php  echo $form->checkbox('zoomModeShowOverlay', 1, $zoomModeShowOverlay); ?>
+							<?php  echo t('Show Overlay');?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="span5">
+							<?php  echo $form->checkbox('zoomModeHideOnOverlayClick', 1, $zoomModeHideOnOverlayClick); ?>
+							<?php  echo t('Hide Overlay on Click');?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="span5">
+							<?php  echo $form->checkbox('zoomModeHideOnContentClick', 1, $zoomModeHideOnContentClick); ?>
+							<?php  echo t('Hide Overlay if Clicking the content');?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="span5">
+							<?php  echo $form->checkbox('zoomModeEnableEscButton', 1, $zoomModeEnableEscButton); ?>
+							<?php  echo t('Enable Escape Button');?>
+						</div>
+					</div>
+				</div>
+				
+				<div class="span3">
+					<div class="row">
+						<div class="span3">
+							<div style="margin: 0px 0px 5px 0px;">
+								<?php  echo t('Overlay Opacity:'); ?>
+								<span id="overlay-opacity-span"><?php  echo $zoomModeOverlayOpacity; ?></span>
+								<?php  echo $form->hidden('zoomModeOverlayOpacity', $zoomModeOverlayOpacity); ?>
+							</div>
+							<div id="overlay-opacity-slider"></div>
+							
+							<div style="position: relative; display: block; margin: 10px 0px 0px 0px;">
+								<?php  echo $form->hidden('zoomModeOverlayColor', $zoomModeOverlayColor); ?>
+								<?php  echo t('Overlay Color:'); ?>
+								<div id="colorSelector"><div style="background-color: <?php  echo $zoomModeOverlayColor; ?>;"></div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="span5">
+					<div class="row">
+						<div class="span5">
+							<div class="row">
+								<div class="span5">
+									<?php  echo $form->checkbox('zoomModeCenterOnScroll', 1, $zoomModeCenterOnScroll); ?>
+									<?php  echo t('Center Image On Page Scroll');?>
+								</div>
+							</div>
+							<div class="row">
+								<div class="span5">
+									<?php  echo $form->checkbox('zoomModeCyclic', 1, $zoomModeCyclic); ?>
+									<?php  echo t('Cyclic View');?>
+								</div>
+							</div>
+							<div class="row">
+								<div class="span5">
+									<?php  echo $form->checkbox('zoomModeAutoScale', 1, $zoomModeAutoScale); ?>
+									<?php  echo t('Auto Scale to fit in Viewport');?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	<div class="items-group-separator"></div>
+
+	<div class="row">
+		<div class="span10">
+			<div class="row">
+				<div class="span5">
+					<?php  echo $form->label('zoomModeMaxWidth', t('Max Image Width:'));?>
+					<input type="number" id="zoomModeMaxWidth" name="zoomModeMaxWidth" value="<?php echo $zoomModeMaxWidth; ?>" min="0" style="width: 50px;" />
+					<?php echo t('pixels.'); ?>
+				</div>
+				<div class="span5">
+					<?php  echo $form->label('zoomModeMaxHeight', t('Max Image Height:'));?>
+					<input type="number" id="zoomModeMaxHeight" name="zoomModeMaxHeight" value="<?php echo $zoomModeMaxHeight; ?>" min="0" style="width: 50px;" />
+					<?php echo t('pixels.'); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="items-group-separator"></div>
+	
+	<div class="row">
+		<div class="span7">
+			<?php  echo $form->checkbox('zoomModeDisplayInformation', 1, $zoomModeDisplayInformation); ?>
+			<?php  echo t('Display Information About Image');?>
+		</div>
+	</div>
+	
+	<div id="zoom-mode-image-information-settings" style="padding: 10px;" class="row">
+		<div class="span10">
+			<div class="row">
+				<div class="span5">
+				
+					<div class="row">
+						<div class="span5" style="padding: 5px 0px 0px 25px;">
+							<?php  echo $form->checkbox('zoomModeDisplayCaption', 1, $zoomModeDisplayCaption); ?>
+							<?php  echo t('Display Image Caption');?>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="span5" style="padding: 5px 0px 0px 25px;">
+							<?php  echo $form->checkbox('zoomModeDisplayImageIndex', 1, $zoomModeDisplayImageIndex); ?>
+							<?php  echo t('Display Image Index Counter');?>
+						</div>
+					</div>
+					
+				</div>
+				<div class="span5">
+					<div class="row">
+						<div class="span5" style="padding: 5px 0px 0px 25px;">
+							<?php  echo $form->label('zoomModeInformationPosition', t('Information Position:'));?>
+							<?php  echo $form->select('zoomModeInformationPosition', array('inside', 'outside', 'over'), $zoomModeInformationPosition, array('style' => 'width: 120px'));?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
 </div>
 </div>
 
 <div id="ccm-info-options-tab" style="display:none; margin-top: 15px;">
 <div id="AmiantImageGalleryInfo">
+
 	<div class="ccm-block-field-group">
 		<h2><?php  echo t('Information');?></h2>
 	</div>
@@ -565,8 +733,6 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 		<p><?php  echo t('Or check my blog at <a href="http://countraven.blogspot.com" target="_blank">http://countraven.blogspot.com</a>.');?></p>
 		<p><?php  echo t('Or follow me on Twitter <a href="http://twitter.com/Count_Raven" target="_blank">Count_Raven</a>.');?></p>
 	</div>
-	
-	
 	
 </div>
 </div>

@@ -8,6 +8,12 @@
 ?> 
 
 <div class="AmiantImageGalleryBlock<?php  echo $bID?> AmiantImageGallery<?php  echo $bID?>">
+
+	<?php if (!empty($title)) { ?>
+	<div class="AmiantImageGalleryTitle">
+		<?php echo $title; ?>
+	</div>
+	<?php } ?>
 	
 	<?php   	if($paginator && strlen($paginator->getPages())>0) {
 			if (($showAsThumbnails == true) && (!isset($_REQUEST['aigid'.$bID]))) {
@@ -20,6 +26,7 @@
 							<span class="ig_pageRight"><?php  echo $paginator->getNext()?></span>
 						</div>
 					</div>
+					<div style="clear: both;"></div>
 				</div>
 	<?php   		} 
 		}
@@ -161,7 +168,14 @@
 				|
 				<span id="AmiantImageGallerySlideControllNext<?php  echo $bID?>" class="AmiantImageGallerySlideControllNext<?php  echo $bID?>"><?php  echo t('Next'); ?> &raquo;</span>
 			</div>
+			<div style="clear: both;"></div>
 		</div>
+		<?php if ($enableSlidesPager) { ?>
+		<div class="AmiantImageGalleryBlockControlBar<?php  echo $bID?>">
+			<span id="AmiantImageGallerySlideControllNav<?php   echo $bID?>" class="AmiantImageGallerySlideControllNav<?php   echo $bID?>"></span>
+			<div style="clear: both;"></div>
+		</div>
+		<?php } ?>
 	<?php 
 
 			echo '<div id="AmiantImageGallerySlidesWrapper'.$bID.'" class="AmiantImageGallerySlidesWrapper'.$bID.'">';

@@ -23,10 +23,11 @@ defined('C5_EXECUTE') or die(_("Access Denied."));
 class AmiantGalleryBlockController extends BlockController {
 
     protected $btTable = 'btAmiantGallery';
-    protected $btInterfaceWidth = "800";
+    protected $btInterfaceWidth = "770";
     protected $btInterfaceHeight = "500";
+    protected $btWrapperClass = 'ccm-ui';
     
-    protected $productVersion = "0.3-20120117";
+    protected $productVersion = "0.5-20120119";
     
     // array of transitions for jQuery Cycle
     protected $transitions = array('0' => 'blindX',
@@ -150,7 +151,7 @@ class AmiantGalleryBlockController extends BlockController {
         $this->set('displaySlideFileType', $this->displaySlideFileType);
         $this->set('displaySlideFileSize', $this->displaySlideFileSize);
         $this->set('displaySlideDownloadLink', $this->displaySlideDownloadLink);
-        
+        $this->set('enableSlidesPager', $this->enableSlidesPager);
         
         $this->set('zoomModeEffect', $this->zoomModeEffect);
         $this->set('zoomModeEffectSpeed', $this->zoomModeEffectSpeed);
@@ -185,8 +186,8 @@ class AmiantGalleryBlockController extends BlockController {
         $bv = new BlockView();
         $bv->setBlockObject($b);
         //if ($this->enableZoomMode) {
-			$this->addHeaderItem('<link rel="stylesheet" type="text/css" href="' . $bv->getBlockURL() . '/jquery.fancybox-1.3.1.css" />');
-			$this->addHeaderItem('<script type="text/javascript" src="' . $bv->getBlockURL() . '/jquery.fancybox-1.3.1.pack.js"></script>');
+			$this->addHeaderItem('<link rel="stylesheet" type="text/css" href="' . $bv->getBlockURL() . '/jquery.fancybox-1.3.4.css" />');
+			$this->addHeaderItem('<script type="text/javascript" src="' . $bv->getBlockURL() . '/jquery.fancybox-1.3.4.pack.js"></script>');
 		//} else {
 			$this->addHeaderItem('<script type="text/javascript" src="' . $bv->getBlockURL() . '/jquery.cycle.all.min.js"></script>');
 		//}
@@ -529,6 +530,7 @@ class AmiantGalleryBlockController extends BlockController {
         $args['displaySlideFileType'] = intval($data['displaySlideFileType']);
         $args['displaySlideFileSize'] = intval($data['displaySlideFileSize']);
         $args['displaySlideDownloadLink'] = intval($data['displaySlideDownloadLink']);
+        $args['enableSlidesPager'] = intval($data['enableSlidesPager']);
 
 		$args['zoomModeEffect'] = intval($data['zoomModeEffect']);
 		$args['zoomModeEffectSpeed'] = intval($data['zoomModeEffectSpeed']);

@@ -5,8 +5,8 @@ defined('C5_EXECUTE') or die(_("Access Denied."));
 class AmiantImageGalleryPackage extends Package {
 
 	protected $pkgHandle = 'amiant_image_gallery';
-	protected $appVersionRequired = '5.4.0';
-	protected $pkgVersion = '0.2';
+	protected $appVersionRequired = '5.5.0';
+	protected $pkgVersion = '0.5';
 	
 	public function getPackageDescription() {
 		return t('Displays Images with effects in various ways.');
