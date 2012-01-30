@@ -27,7 +27,7 @@ class AmiantGalleryBlockController extends BlockController {
     protected $btInterfaceHeight = "500";
     protected $btWrapperClass = 'ccm-ui';
     
-    protected $productVersion = "0.5-20120119";
+    protected $productVersion = "0.5.2-20120130";
     
     // array of transitions for jQuery Cycle
     protected $transitions = array('0' => 'blindX',

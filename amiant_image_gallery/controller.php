@@ -6,7 +6,7 @@ class AmiantImageGalleryPackage extends Package {
 
 	protected $pkgHandle = 'amiant_image_gallery';
 	protected $appVersionRequired = '5.5.0';
-	protected $pkgVersion = '0.5.1';
+	protected $pkgVersion = '0.5.2';
 	
 	public function getPackageDescription() {
 		return t('Displays Images with effects in various ways.');

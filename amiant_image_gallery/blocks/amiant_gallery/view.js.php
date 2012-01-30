@@ -2,15 +2,15 @@
 
 <script type="text/javascript">
 	
-	var alreadyInitializedFancyBox = false;
-	var alreadyInitializedPopups = false;
+	var alreadyInitializedFancyBox<?php  echo $bID?> = false;
+	var alreadyInitializedPopups<?php  echo $bID?> = false;
 
     <?php  if ($displayThumbnailBubblePopup) { ?>
     
     var zindex = 100;
 	
     function AmiantImageGalleryBlockCreatePopups<?php  echo $bID?>() {
-		if (alreadyInitializedPopups == false) {
+		if (alreadyInitializedPopups<?php  echo $bID?> == false) {
 			$('.AmiantImageGalleryThumbnailContainerWrapper<?php  echo $bID; ?>').each(function () {
 				
 				zindex--;
@@ -69,7 +69,7 @@
 				});
 			});
 			
-			alreadyInitializedPopups = true;
+			alreadyInitializedPopups<?php  echo $bID?> = true;
 		}
     }
 
@@ -211,7 +211,7 @@
 
 	
 	$(function () {
-		if (alreadyInitializedFancyBox == false) {
+		if (alreadyInitializedFancyBox<?php  echo $bID?> == false) {
 			$("a.zoomModeImage<?php  echo $bID?>").fancybox({
 				'transitionIn'	:	'<?php  echo $controller->getZoomModeFX($zoomModeEffect); ?>',
 				'transitionOut'	:	'<?php  echo $controller->getZoomModeFX($zoomModeEffect); ?>',
@@ -233,7 +233,7 @@
 				'titleFormat'	:	formatTitle<?php  echo $bID?>
 			});
 			
-			alreadyInitializedFancyBox = true;
+			alreadyInitializedFancyBox<?php  echo $bID?> = true;
 		}
 	});
 	
