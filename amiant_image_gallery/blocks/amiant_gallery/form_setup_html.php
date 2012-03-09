@@ -60,6 +60,10 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 	float: none;
 	cursor: pointer;
 }
+#AmiantImageGalleryThumbnailOptions .row label.span4 {
+	padding-left:10px;
+	width:210px !important;
+}
 </style>
 
 
