@@ -481,7 +481,7 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 		<div class="span10" style="padding: 15px 0px 5px 25px;">
 			<?php  echo $form->checkbox('enableSlidesPager', 1, $enableSlidesPager); ?>
 			<?php  echo $form->label('enableSlidesPager', t('Show pager for slides'),array('class' => 'spec-checkbox-label'));?>
-			<span class="label success">New</span>
+			<span class="label success"><?php echo t('New')?></span>
 		</div>
 	</div>
 	
