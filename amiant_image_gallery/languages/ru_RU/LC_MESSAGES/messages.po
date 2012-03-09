@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Amiant Image Gallery Block for Concrete5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-08 13:33+0400\n"
-"PO-Revision-Date: 2012-03-08 13:33+0400\n"
+"POT-Creation-Date: 2012-03-09 18:42+0400\n"
+"PO-Revision-Date: 2012-03-09 19:03+0400\n"
 "Last-Translator: Concrete5Russia <schepetkov@gmail.com>\n"
 "Language-Team: cravener@gmail.com <Translator: schepetkov@gmail.com from concrete5russia>\n"
 "MIME-Version: 1.0\n"
@@ -138,345 +138,353 @@ msgstr "Изображение будет ссылаться на url адрес
 msgid "Picture will show caption if (image_caption) file attribute is set."
 msgstr "Изображение будет иметь подпись, если атрибут \"image_caption\" установлен."
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:159
+#: ../../../blocks/amiant_gallery/form_setup_html.php:168
 msgid "Images"
 msgstr "Изображения"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:160
+#: ../../../blocks/amiant_gallery/form_setup_html.php:169
 msgid "Gallery Options"
 msgstr "Настройки галереи"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:161
-#: ../../../blocks/amiant_gallery/form_setup_html.php:357
+#: ../../../blocks/amiant_gallery/form_setup_html.php:170
+#: ../../../blocks/amiant_gallery/form_setup_html.php:366
 msgid "Thumbnail Options"
 msgstr "Настройки миниатюр"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:162
-#: ../../../blocks/amiant_gallery/form_setup_html.php:462
+#: ../../../blocks/amiant_gallery/form_setup_html.php:171
+#: ../../../blocks/amiant_gallery/form_setup_html.php:471
 msgid "Slide Options"
 msgstr "Настройки слайдов"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:163
-#: ../../../blocks/amiant_gallery/form_setup_html.php:525
+#: ../../../blocks/amiant_gallery/form_setup_html.php:172
+#: ../../../blocks/amiant_gallery/form_setup_html.php:535
 msgid "Zoom Mode Options"
 msgstr "Настройки зума"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:164
-#: ../../../blocks/amiant_gallery/form_setup_html.php:715
+#: ../../../blocks/amiant_gallery/form_setup_html.php:173
+#: ../../../blocks/amiant_gallery/form_setup_html.php:725
 msgid "Information"
-msgstr "Информация"
+msgstr "Инфо"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:171
+#: ../../../blocks/amiant_gallery/form_setup_html.php:180
 #: ../../../blocks/amiant_gallery/view.php:103
 #: ../../../blocks/amiant_gallery/view.php:213
 msgid "Type"
 msgstr "Тип"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:173
+#: ../../../blocks/amiant_gallery/form_setup_html.php:182
 msgid "Custom Slideshow"
 msgstr "Специальное слайдшоу"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:174
+#: ../../../blocks/amiant_gallery/form_setup_html.php:183
 msgid "Pictures from File Set"
 msgstr "Изображения из набора"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:180
+#: ../../../blocks/amiant_gallery/form_setup_html.php:189
 msgid "Add Image"
 msgstr "Добавить изображение"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:237
+#: ../../../blocks/amiant_gallery/form_setup_html.php:246
 msgid "Amiant Image Gallery Options"
 msgstr "Настройки галереи изображений Amiant"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:243
+#: ../../../blocks/amiant_gallery/form_setup_html.php:252
 msgid "Gallery Title:"
 msgstr "Заголовок галереи:"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:247
+#: ../../../blocks/amiant_gallery/form_setup_html.php:256
 msgid "Notice"
 msgstr "Примечание"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:248
+#: ../../../blocks/amiant_gallery/form_setup_html.php:257
 msgid "Will be showed only if the title field not empty."
 msgstr "Будет отображаться только если поле с заголовком не пустое."
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:262
+#: ../../../blocks/amiant_gallery/form_setup_html.php:271
 msgid "Width:"
 msgstr "Ширина:"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:264
-#: ../../../blocks/amiant_gallery/form_setup_html.php:269
-#: ../../../blocks/amiant_gallery/form_setup_html.php:374
-#: ../../../blocks/amiant_gallery/form_setup_html.php:386
-#: ../../../blocks/amiant_gallery/form_setup_html.php:398
+#: ../../../blocks/amiant_gallery/form_setup_html.php:273
+#: ../../../blocks/amiant_gallery/form_setup_html.php:278
+#: ../../../blocks/amiant_gallery/form_setup_html.php:383
+#: ../../../blocks/amiant_gallery/form_setup_html.php:395
+#: ../../../blocks/amiant_gallery/form_setup_html.php:407
 msgid "Required"
 msgstr "(обязат.)"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:267
+#: ../../../blocks/amiant_gallery/form_setup_html.php:276
 msgid "Height:"
 msgstr "Высота:"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:274
+#: ../../../blocks/amiant_gallery/form_setup_html.php:283
 msgid "This is a size of Amiant Image Gallery block container."
 msgstr "Указывается размер контейнера, содержащего галерею изображений Amiant."
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:275
+#: ../../../blocks/amiant_gallery/form_setup_html.php:284
 msgid "Must be set to same size as images or higher."
 msgstr "Размер необходимо установить равным или больше размера изображений."
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:286
+#: ../../../blocks/amiant_gallery/form_setup_html.php:295
 msgid "Show As Thumbnails"
 msgstr "Показывать миниатюры"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:297
+#: ../../../blocks/amiant_gallery/form_setup_html.php:306
 msgid "Enable Zoom Mode"
 msgstr "Разрешить зум изображений"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:308
+#: ../../../blocks/amiant_gallery/form_setup_html.php:317
 msgid "Transition Type"
 msgstr "Способ смены слайдов"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:313
+#: ../../../blocks/amiant_gallery/form_setup_html.php:322
 msgid "Transition speed:"
 msgstr "Скорость:"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:315
-#: ../../../blocks/amiant_gallery/form_setup_html.php:543
+#: ../../../blocks/amiant_gallery/form_setup_html.php:324
+#: ../../../blocks/amiant_gallery/form_setup_html.php:553
 msgid "milliseconds."
-msgstr "(в миллисекундах)"
+msgstr "(мсек.)"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:328
+#: ../../../blocks/amiant_gallery/form_setup_html.php:337
 msgid "Auto Play"
 msgstr "Запускать слайдшоу автоматически"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:332
+#: ../../../blocks/amiant_gallery/form_setup_html.php:341
 msgid "Pause slideshow on mouse hover"
 msgstr "Останавливать слайдшоу при наведении курсора на изображение"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:336
+#: ../../../blocks/amiant_gallery/form_setup_html.php:345
 msgid "Loop images continuously"
 msgstr "Повторять изображения циклически"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:346
+#: ../../../blocks/amiant_gallery/form_setup_html.php:355
 msgid "Duration of each slide:"
 msgstr "Продолжительность показа каждого слайда:"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:348
+#: ../../../blocks/amiant_gallery/form_setup_html.php:357
 msgid "seconds."
 msgstr "сек."
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:360
+#: ../../../blocks/amiant_gallery/form_setup_html.php:369
 msgid "Please turn on \"Show As Thumbnails\" option on the \"Gallery Options\" tab, if you want to activate the options below."
 msgstr "Отметьте флажок \"Показывать миниатюры\" во вкладке \"Настройки галереи\", чтобы активировать настройки ниже."
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:371
+#: ../../../blocks/amiant_gallery/form_setup_html.php:380
 msgid "Maximum Thumbnails per page:"
-msgstr "Максимальное число миниатюр на странице:"
+msgstr "Макс. число миниатюр на странице:"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:383
+#: ../../../blocks/amiant_gallery/form_setup_html.php:392
 msgid "Maximum Thumbnail Width:"
-msgstr "Максимальная ширина миниатюры:"
+msgstr "Макс. ширина миниатюры:"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:395
+#: ../../../blocks/amiant_gallery/form_setup_html.php:404
 msgid "Maximum Thumbnail Height:"
-msgstr "Максимальная высота миниатюры:"
+msgstr "Макс. высота миниатюры:"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:410
+#: ../../../blocks/amiant_gallery/form_setup_html.php:419
 msgid "Add Title Attribute to IMG tag for thumbnails"
 msgstr "Добавить к тегу IMG миниатюры атрибут title"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:417
+#: ../../../blocks/amiant_gallery/form_setup_html.php:426
 msgid "Show Pop-up Bubble with Information for Thumbnails"
 msgstr "Показывать всплывающую подсказку Pop-up Bubble с информацией о миниатюре"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:427
+#: ../../../blocks/amiant_gallery/form_setup_html.php:436
 msgid "Show File Caption in a Pop-up Bubble"
 msgstr "Показывать подпись к изображению во всплывающей подсказке Pop-up Bubble"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:433
+#: ../../../blocks/amiant_gallery/form_setup_html.php:442
 msgid "Show File Name in a Pop-up Bubble"
 msgstr "Показывать название файла во всплывающей подсказке Pop-up Bubble"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:439
+#: ../../../blocks/amiant_gallery/form_setup_html.php:448
 msgid "Show File Type in a Pop-up Bubble"
 msgstr "Показывать тип файла во всплывающей подсказке Pop-up Bubble"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:445
+#: ../../../blocks/amiant_gallery/form_setup_html.php:454
 msgid "Show File Size in a Pop-up Bubble"
 msgstr "Показывать размер файла во всплывающей подсказке Pop-up Bubble"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:451
+#: ../../../blocks/amiant_gallery/form_setup_html.php:460
 msgid "Show a Link to Download the File in a Pop-up Bubble"
 msgstr "Показывать ссылку для скачивания файла во всплывающей подсказке Pop-up Bubble"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:467
+#: ../../../blocks/amiant_gallery/form_setup_html.php:476
 msgid "Align the image in the center of the block"
 msgstr "Выравнивать изображения по центру блока"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:474
+#: ../../../blocks/amiant_gallery/form_setup_html.php:483
 msgid "Show pager for slides"
 msgstr "Отображать переключатель страниц для слайдов"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:482
+#: ../../../blocks/amiant_gallery/form_setup_html.php:484
+msgid "New"
+msgstr "Новое"
+
+#: ../../../blocks/amiant_gallery/form_setup_html.php:491
 msgid "Show information about the image on the slide"
 msgstr "Показывать информацию об изображении на слайде"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:490
+#: ../../../blocks/amiant_gallery/form_setup_html.php:499
 msgid "Show File Caption"
 msgstr "Показывать подпись к изображению"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:496
+#: ../../../blocks/amiant_gallery/form_setup_html.php:506
 msgid "Show File Name"
 msgstr "Показывать название файла"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:502
+#: ../../../blocks/amiant_gallery/form_setup_html.php:512
 msgid "Show File Type"
 msgstr "Показывать тип файла"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:508
+#: ../../../blocks/amiant_gallery/form_setup_html.php:518
 msgid "Show File Size"
 msgstr "Показывать размер файла"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:514
+#: ../../../blocks/amiant_gallery/form_setup_html.php:524
 msgid "Show a Link to Download the File"
 msgstr "Показывать ссылку для скачивания файла"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:528
+#: ../../../blocks/amiant_gallery/form_setup_html.php:538
 msgid "Please turn on \"Show As Thumbnails\" and \"Enable Zoom Mode\" options on the \"Gallery Options\" tab, if you want to activate the options below."
 msgstr "Отметьте флажок \"Показывать миниатюры\" и \"Разрешить зум изображений\" во вкладке \"Настройки галереи\", чтобы активировать настройки ниже."
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:537
+#: ../../../blocks/amiant_gallery/form_setup_html.php:547
 msgid "Effect:"
 msgstr "Эффект:"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:541
+#: ../../../blocks/amiant_gallery/form_setup_html.php:551
 msgid "Effect speed:"
 msgstr "Скорость эффекта:"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:556
+#: ../../../blocks/amiant_gallery/form_setup_html.php:566
 msgid "Show Close Button"
 msgstr "Показывать кнопку закрытия"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:560
+#: ../../../blocks/amiant_gallery/form_setup_html.php:570
 msgid "Show Navigation Arrows"
 msgstr "Показывать навигационные стрелки"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:576
+#: ../../../blocks/amiant_gallery/form_setup_html.php:586
 msgid "Show Overlay"
 msgstr "Отображать фоновый слой при увеличении изображения"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:582
+#: ../../../blocks/amiant_gallery/form_setup_html.php:592
 msgid "Hide Overlay on Click"
 msgstr "Свернуть изображение при клике по фоновому слою"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:588
+#: ../../../blocks/amiant_gallery/form_setup_html.php:598
 msgid "Hide Overlay if Clicking the content"
 msgstr "Свернуть изображение при клике по нему"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:594
+#: ../../../blocks/amiant_gallery/form_setup_html.php:604
 msgid "Enable Escape Button"
 msgstr "Разрешить использование кнопки Escape"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:603
+#: ../../../blocks/amiant_gallery/form_setup_html.php:613
 msgid "Overlay Opacity:"
-msgstr "Прозрачность слоя:"
+msgstr "Прозрачность фона:"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:611
+#: ../../../blocks/amiant_gallery/form_setup_html.php:621
 msgid "Overlay Color:"
-msgstr "Цвет слоя:"
+msgstr "Цвет фона:"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:624
+#: ../../../blocks/amiant_gallery/form_setup_html.php:634
 msgid "Center Image On Page Scroll"
 msgstr "Центрировать изображение при прокручивании страницы"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:630
+#: ../../../blocks/amiant_gallery/form_setup_html.php:640
 msgid "Cyclic View"
 msgstr "Цикличность отображения"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:636
+#: ../../../blocks/amiant_gallery/form_setup_html.php:646
 msgid "Auto Scale to fit in Viewport"
 msgstr "Масштабировать по видимой части браузера"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:653
+#: ../../../blocks/amiant_gallery/form_setup_html.php:663
 msgid "Max Image Width:"
-msgstr "Максимальная ширина изображения:"
+msgstr "Макс. ширина изображения:"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:655
-#: ../../../blocks/amiant_gallery/form_setup_html.php:660
+#: ../../../blocks/amiant_gallery/form_setup_html.php:665
+#: ../../../blocks/amiant_gallery/form_setup_html.php:670
 msgid "pixels."
 msgstr "пикс."
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:658
+#: ../../../blocks/amiant_gallery/form_setup_html.php:668
 msgid "Max Image Height:"
-msgstr "Максимальная высота изображения:"
+msgstr "Макс. высота изображения:"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:671
+#: ../../../blocks/amiant_gallery/form_setup_html.php:681
 msgid "Display Information About Image"
 msgstr "Отображать информацию об изображении"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:683
+#: ../../../blocks/amiant_gallery/form_setup_html.php:693
 msgid "Display Image Caption"
 msgstr "Отображать подпись к изображению"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:690
+#: ../../../blocks/amiant_gallery/form_setup_html.php:700
 msgid "Display Image Index Counter"
 msgstr "Отображать номера изображений"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:698
+#: ../../../blocks/amiant_gallery/form_setup_html.php:708
 msgid "Information Position:"
 msgstr "Расположение информационного блока:"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:719
+#: ../../../blocks/amiant_gallery/form_setup_html.php:729
 msgid "System"
 msgstr "Система"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:720
+#: ../../../blocks/amiant_gallery/form_setup_html.php:730
 msgid "Concrete5 CMS Version"
 msgstr "Версия cms Concrete5"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:721
+#: ../../../blocks/amiant_gallery/form_setup_html.php:731
 msgid "Product Name"
 msgstr "Название проекта"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:722
+#: ../../../blocks/amiant_gallery/form_setup_html.php:732
 msgid "Product Description"
 msgstr "Описание проекта"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:723
+#: ../../../blocks/amiant_gallery/form_setup_html.php:733
 msgid "Product Version"
 msgstr "Версия проекта"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:726
+#: ../../../blocks/amiant_gallery/form_setup_html.php:736
 msgid "License"
 msgstr "Лицензия"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:727
+#: ../../../blocks/amiant_gallery/form_setup_html.php:737
 msgid "This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License (GPL) Version 2. License is included in the distribution in the file: LICENSE"
 msgstr "Данный модуль распространяется бесплатно; вы можете изменять его и/или модифицировать его не нарушая лицензию GNU Открытое лицензионное соглашение (GPL) Версии 2. Полный текст лицензии содержится в прилагаемом файл: LICENSE."
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:728
+#: ../../../blocks/amiant_gallery/form_setup_html.php:738
 msgid "This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
 msgstr "Данный электронный продукт распространяется \"как есть\" без каких-либо гарантий, ЯВНО ВЫРАЖЕННЫХ ИЛИ ПОДРАЗУМЕВАЕМЫХ, и не должен иметь какую-либо коммерческую ценность."
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:731
+#: ../../../blocks/amiant_gallery/form_setup_html.php:741
 msgid "Contacts"
 msgstr "Контакты"
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:732
+#: ../../../blocks/amiant_gallery/form_setup_html.php:742
 msgid "For any questions, bug reports and comments please, contact me at <a href=\"mailto:cravener@gmail.com\">cravener@gmail.com</a>."
 msgstr "По любым вопросам, сообщения о багах и комментарии пишите на <a href=\"mailto:cravener@gmail.com\">cravener@gmail.com</a>."
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:733
+#: ../../../blocks/amiant_gallery/form_setup_html.php:743
 msgid "Or check my blog at <a href=\"http://countraven.blogspot.com\" target=\"_blank\">http://countraven.blogspot.com</a>."
 msgstr "Мой блог: <a href=\"http://countraven.blogspot.com\" target=\"_blank\">http://countraven.blogspot.com</a>."
 
-#: ../../../blocks/amiant_gallery/form_setup_html.php:734
+#: ../../../blocks/amiant_gallery/form_setup_html.php:744
 msgid "Or follow me on Twitter <a href=\"http://twitter.com/Count_Raven\" target=\"_blank\">Count_Raven</a>."
 msgstr "Следите за мной в твиттере <a href=\"http://twitter.com/Count_Raven\" target=\"_blank\">Count_Raven</a>.<p>&nbsp;</p>Русификация модуля осуществлена группой <a href=\"http://www.concrete5russia.ru\" target=\"_blank\">Concrete5 Russia<a>."
 
 #: ../../../blocks/amiant_gallery/image_row_include.php:14
 msgid "Caption (optional)"
 msgstr "Подпись к изображению (не обязательно)"
+
+#: ../../../blocks/amiant_gallery/image_row_include.php:14
+msgid "Caption"
+msgstr "Подпись"
 
 #: ../../../blocks/amiant_gallery/image_row_include.php:17
 msgid "Link URL (optional)"
