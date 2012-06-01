@@ -51,6 +51,19 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 	width: 28px;
 	position: absolute;
 }
+#AmiantImageGalleryOptions label.spec-checkbox-label,
+#AmiantImageGalleryThumbnailOptions label.spec-checkbox-label,
+#AmiantImageGallerySlideOptions label.spec-checkbox-label,
+#AmiantImageGalleryZoomOptions label.spec-checkbox-label {
+	width: auto;
+	margin-top: 0 !important; 
+	float: none;
+	cursor: pointer;
+}
+#AmiantImageGalleryThumbnailOptions .row label.span4 {
+	padding-left:10px;
+	width:210px !important;
+}
 </style>
 
 
@@ -283,7 +296,7 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 	<div class="row">
 		<div class="span5">
 			<?php  echo $form->checkbox('showAsThumbnails', 1, $showAsThumbnails); ?>
-			<?php  echo t('Show As Thumbnails');?>
+			<?php  echo $form->label('showAsThumbnails', t('Show As Thumbnails'),array('class' => 'spec-checkbox-label'));?>
 		</div>
 	</div>
 		
@@ -294,7 +307,7 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 	<?php  } ?>
 		<div class="span5">
 			<?php  echo $form->checkbox('enableZoomMode', 1, $enableZoomMode); ?>
-			<?php  echo t('Enable Zoom Mode');?>
+			<?php  echo $form->label('enableZoomMode', t('Enable Zoom Mode'),array('class' => 'spec-checkbox-label'));?>
 		</div>
 	</div>
 
@@ -325,15 +338,15 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 			<div class="row">
 				<div class="span2">
 					<?php  echo $form->checkbox('autoSlide', 1, $autoSlide); ?>
-					<?php  echo t('Auto Play');?>
+					<?php  echo $form->label('autoSlide', t('Auto Play'),array('class' => 'spec-checkbox-label'));?>
 				</div>
 				<div class="span5">
 					<?php  echo $form->checkbox('pauseOnMouseHover', 1, $pauseOnMouseHover); ?>
-					<?php  echo t('Pause slideshow on mouse hover');?>
+					<?php  echo $form->label('pauseOnMouseHover', t('Pause slideshow on mouse hover'),array('class' => 'spec-checkbox-label'));?>
 				</div>
 				<div class="span5">
 					<?php  echo $form->checkbox('continuous', 1, $continuous); ?>
-					<?php  echo t('Loop images continuously');?>
+					<?php  echo $form->label('continuous', t('Loop images continuously'),array('class' => 'spec-checkbox-label'));?>
 				</div>
 			</div>
 		</div>
@@ -407,14 +420,14 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 	<div class="row">
 		<div class="span10" style="padding: 15px 0px 5px 25px;">
 			<?php  echo $form->checkbox('addThumbnailTitleAttr', 1, $addThumbnailTitleAttr); ?>
-			<?php echo t('Add Title Attribute to IMG tag for thumbnails'); ?>
+			<?php  echo $form->label('addThumbnailTitleAttr', t('Add Title Attribute to IMG tag for thumbnails'),array('class' => 'spec-checkbox-label'));?>
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="span10" style="padding: 5px 0px 5px 25px;">
 			<?php  echo $form->checkbox('displayThumbnailBubblePopup', 1, $displayThumbnailBubblePopup); ?>
-			<?php echo t('Show Pop-up Bubble with Information for Thumbnails'); ?>
+			<?php  echo $form->label('displayThumbnailBubblePopup', t('Show Pop-up Bubble with Information for Thumbnails'),array('class' => 'spec-checkbox-label'));?>
 		</div>
 	</div>
 	
@@ -424,31 +437,31 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 			<div class="row">
 				<div class="span10" style="padding: 5px 0px 0px 25px;">
 				<?php  echo $form->checkbox('displayThumbnailCaption', 1, $displayThumbnailCaption); ?>
-				<?php  echo t('Show File Caption in a Pop-up Bubble');?>
+				<?php  echo $form->label('displayThumbnailCaption', t('Show File Caption in a Pop-up Bubble'),array('class' => 'spec-checkbox-label'));?>
 				</div>
 			</div>
 			<div class="row">
 				<div class="span10" style="padding: 5px 0px 0px 25px;">
 				<?php  echo $form->checkbox('displayThumbnailFileName', 1, $displayThumbnailFileName); ?>
-				<?php  echo t('Show File Name in a Pop-up Bubble');?>
+				<?php  echo $form->label('displayThumbnailFileName', t('Show File Name in a Pop-up Bubble'),array('class' => 'spec-checkbox-label'));?>
 				</div>
 			</div>
 			<div class="row">
 				<div class="span10" style="padding: 5px 0px 0px 25px;">
 				<?php  echo $form->checkbox('displayThumbnailFileType', 1, $displayThumbnailFileType); ?>
-				<?php  echo t('Show File Type in a Pop-up Bubble');?>
+				<?php  echo $form->label('displayThumbnailFileType', t('Show File Type in a Pop-up Bubble'),array('class' => 'spec-checkbox-label'));?>
 				</div>
 			</div>
 			<div class="row">
 				<div class="span10" style="padding: 5px 0px 0px 25px;">
 				<?php  echo $form->checkbox('displayThumbnailFileSize', 1, $displayThumbnailFileSize); ?>
-				<?php  echo t('Show File Size in a Pop-up Bubble');?>
+				<?php  echo $form->label('displayThumbnailFileSize', t('Show File Size in a Pop-up Bubble'),array('class' => 'spec-checkbox-label'));?>
 				</div>
 			</div>
 			<div class="row">
 				<div class="span10" style="padding: 5px 0px 0px 25px;">
 				<?php  echo $form->checkbox('displayThumbnailDownloadLink', 1, $displayThumbnailDownloadLink); ?>
-				<?php  echo t('Show a Link to Download the File in a Pop-up Bubble'); ?>
+				<?php  echo $form->label('displayThumbnailDownloadLink', t('Show a Link to Download the File in a Pop-up Bubble'),array('class' => 'spec-checkbox-label'));?>
 				</div>
 			</div>
 		</div>
@@ -464,22 +477,22 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 	<div class="row">
 		<div class="span10" style="padding: 15px 0px 5px 25px;">
 			<?php  echo $form->checkbox('alignSlideToCenter', 1, $alignSlideToCenter); ?>
-			<?php  echo t('Align the image in the center of the block'); ?>
+			<?php  echo $form->label('alignSlideToCenter', t('Align the image in the center of the block'),array('class' => 'spec-checkbox-label'));?>
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="span10" style="padding: 15px 0px 5px 25px;">
 			<?php  echo $form->checkbox('enableSlidesPager', 1, $enableSlidesPager); ?>
-			<?php  echo t('Show pager for slides'); ?>
-			<span class="label success">New</span>
+			<?php  echo $form->label('enableSlidesPager', t('Show pager for slides'),array('class' => 'spec-checkbox-label'));?>
+			<span class="label success"><?php echo t('New')?></span>
 		</div>
 	</div>
 	
 	<div class="row">
 		<div class="span10" style="padding: 15px 0px 5px 25px;">
 			<?php  echo $form->checkbox('displaySlideInformation', 1, $displaySlideInformation); ?>
-			<?php  echo t('Show information about the image on the slide');?>
+			<?php  echo $form->label('displaySlideInformation', t('Show information about the image on the slide'),array('class' => 'spec-checkbox-label'));?>
 		</div>
 	</div>
 
@@ -487,31 +500,32 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 		<div class="row">
 			<div class="span10" style="padding: 5px 0px 0px 25px;">
 				<?php  echo $form->checkbox('displaySlideCaption', 1, $displaySlideCaption); ?>
-				<?php  echo t('Show File Caption');?><br />
+				<?php  echo $form->label('displaySlideCaption', t('Show File Caption'),array('class' => 'spec-checkbox-label'));?>
+				<br />
 			</div>
 		</div>
 		<div class="row">
 			<div class="span10" style="padding: 5px 0px 0px 25px;">
 				<?php  echo $form->checkbox('displaySlideFileName', 1, $displaySlideFileName); ?>
-				<?php  echo t('Show File Name');?>
+				<?php  echo $form->label('displaySlideFileName', t('Show File Name'),array('class' => 'spec-checkbox-label'));?>
 			</div>
 		</div>
 		<div class="row">
 			<div class="span10" style="padding: 5px 0px 0px 25px;">
 				<?php  echo $form->checkbox('displaySlideFileType', 1, $displaySlideFileType); ?>
-				<?php  echo t('Show File Type');?>
+				<?php  echo $form->label('displaySlideFileType', t('Show File Type'),array('class' => 'spec-checkbox-label'));?>
 			</div>
 		</div>
 		<div class="row">
 			<div class="span10" style="padding: 5px 0px 0px 25px;">
 				<?php  echo $form->checkbox('displaySlideFileSize', 1, $displaySlideFileSize); ?>
-				<?php  echo t('Show File Size');?>
+				<?php  echo $form->label('displaySlideFileSize', t('Show File Size'),array('class' => 'spec-checkbox-label'));?>
 			</div>
 		</div>
 		<div class="row">
 			<div class="span10" style="padding: 5px 0px 0px 25px;">
 				<?php  echo $form->checkbox('displaySlideDownloadLink', 1, $displaySlideDownloadLink); ?>
-				<?php  echo t('Show a Link to Download the File');?>
+				<?php  echo $form->label('displaySlideDownloadLink', t('Show a Link to Download the File'),array('class' => 'spec-checkbox-label'));?>
 			</div>
 		</div>
 	</div>
@@ -553,11 +567,11 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 			<div class="row">
 				<div class="span5">
 					<?php  echo $form->checkbox('zoomModeShowCloseButton', 1, $zoomModeShowCloseButton); ?>
-					<?php  echo t('Show Close Button');?>
+					<?php  echo $form->label('zoomModeShowCloseButton', t('Show Close Button'),array('class' => 'spec-checkbox-label'));?>
 				</div>
 				<div class="span5">
 					<?php  echo $form->checkbox('zoomModeShowNavArrows', 1, $zoomModeShowNavArrows); ?>
-					<?php  echo t('Show Navigation Arrows');?>
+					<?php  echo $form->label('zoomModeShowNavArrows', t('Show Navigation Arrows'),array('class' => 'spec-checkbox-label'));?>
 				</div>
 			</div>
 		</div>
@@ -573,25 +587,25 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 					<div class="row">
 						<div class="span5">
 							<?php  echo $form->checkbox('zoomModeShowOverlay', 1, $zoomModeShowOverlay); ?>
-							<?php  echo t('Show Overlay');?>
+							<?php  echo $form->label('zoomModeShowOverlay', t('Show Overlay'),array('class' => 'spec-checkbox-label'));?>
 						</div>
 					</div>
 					<div class="row">
 						<div class="span5">
 							<?php  echo $form->checkbox('zoomModeHideOnOverlayClick', 1, $zoomModeHideOnOverlayClick); ?>
-							<?php  echo t('Hide Overlay on Click');?>
+							<?php  echo $form->label('zoomModeHideOnOverlayClick', t('Hide Overlay on Click'),array('class' => 'spec-checkbox-label'));?>
 						</div>
 					</div>
 					<div class="row">
 						<div class="span5">
 							<?php  echo $form->checkbox('zoomModeHideOnContentClick', 1, $zoomModeHideOnContentClick); ?>
-							<?php  echo t('Hide Overlay if Clicking the content');?>
+							<?php  echo $form->label('zoomModeHideOnContentClick', t('Hide Overlay if Clicking the content'),array('class' => 'spec-checkbox-label'));?>
 						</div>
 					</div>
 					<div class="row">
 						<div class="span5">
 							<?php  echo $form->checkbox('zoomModeEnableEscButton', 1, $zoomModeEnableEscButton); ?>
-							<?php  echo t('Enable Escape Button');?>
+							<?php  echo $form->label('zoomModeEnableEscButton', t('Enable Escape Button'),array('class' => 'spec-checkbox-label'));?>
 						</div>
 					</div>
 				</div>
@@ -621,19 +635,19 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 							<div class="row">
 								<div class="span5">
 									<?php  echo $form->checkbox('zoomModeCenterOnScroll', 1, $zoomModeCenterOnScroll); ?>
-									<?php  echo t('Center Image On Page Scroll');?>
+									<?php  echo $form->label('zoomModeCenterOnScroll', t('Center Image On Page Scroll'),array('class' => 'spec-checkbox-label'));?>
 								</div>
 							</div>
 							<div class="row">
 								<div class="span5">
 									<?php  echo $form->checkbox('zoomModeCyclic', 1, $zoomModeCyclic); ?>
-									<?php  echo t('Cyclic View');?>
+									<?php  echo $form->label('zoomModeCyclic', t('Cyclic View'),array('class' => 'spec-checkbox-label'));?>
 								</div>
 							</div>
 							<div class="row">
 								<div class="span5">
 									<?php  echo $form->checkbox('zoomModeAutoScale', 1, $zoomModeAutoScale); ?>
-									<?php  echo t('Auto Scale to fit in Viewport');?>
+									<?php  echo $form->label('zoomModeAutoScale', t('Auto Scale to fit in Viewport'),array('class' => 'spec-checkbox-label'));?>
 								</div>
 							</div>
 						</div>
@@ -668,7 +682,7 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 	<div class="row">
 		<div class="span7">
 			<?php  echo $form->checkbox('zoomModeDisplayInformation', 1, $zoomModeDisplayInformation); ?>
-			<?php  echo t('Display Information About Image');?>
+			<?php  echo $form->label('zoomModeDisplayInformation', t('Display Information About Image'),array('class' => 'spec-checkbox-label'));?>
 		</div>
 	</div>
 	
@@ -680,14 +694,14 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 					<div class="row">
 						<div class="span5" style="padding: 5px 0px 0px 25px;">
 							<?php  echo $form->checkbox('zoomModeDisplayCaption', 1, $zoomModeDisplayCaption); ?>
-							<?php  echo t('Display Image Caption');?>
+							<?php  echo $form->label('zoomModeDisplayCaption', t('Display Image Caption'),array('class' => 'spec-checkbox-label'));?>
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="span5" style="padding: 5px 0px 0px 25px;">
 							<?php  echo $form->checkbox('zoomModeDisplayImageIndex', 1, $zoomModeDisplayImageIndex); ?>
-							<?php  echo t('Display Image Index Counter');?>
+							<?php  echo $form->label('zoomModeDisplayImageIndex', t('Display Image Index Counter'),array('class' => 'spec-checkbox-label'));?>
 						</div>
 					</div>
 					

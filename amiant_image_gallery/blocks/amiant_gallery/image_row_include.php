@@ -11,7 +11,7 @@
 		<strong><?php  echo $imgInfo['fileName']?></strong>
 		<div class="row" style="margin-top: 15px;">
 			<div class="span5">
-				<?php  echo t('Caption (optional)')?>: <input type="text" name="caption[]" value="<?php  echo $imgInfo['caption']?>" placeholder="Caption" style="vertical-align: middle; width: 150px" />
+				<?php  echo t('Caption (optional)')?>: <input type="text" name="caption[]" value="<?php  echo $imgInfo['caption']?>" placeholder="<?php echo t('Caption');?>" style="vertical-align: middle; width: 150px" />
 			</div>
 			<div class="span5">
 				<?php  echo t('Link URL (optional)')?>: <input type="url" name="url[]" value="<?php  echo $imgInfo['url']?>" placeholder="http://somesite.url/" style="vertical-align: middle; width: 150px" />
