@@ -1,39 +1,41 @@
-<?php    defined('C5_EXECUTE') or die(_("Access Denied.")); ?>
+<?php     defined('C5_EXECUTE') or die(_("Access Denied.")); ?>
 
-<?php 
+<?php  
+	$randID = rand();
+	
 	include("view.css.php");
 	include("view.js.php");
 	
 	$c = Page::getCurrentPage();
 ?> 
 
-<div class="AmiantImageGalleryBlock<?php  echo $bID?> AmiantImageGallery<?php  echo $bID?>">
+<div class="AmiantImageGalleryBlock<?php   echo $randID?> AmiantImageGallery<?php   echo $randID?>">
 
-	<?php if (!empty($title)) { ?>
+	<?php  if (!empty($title)) { ?>
 	<div class="AmiantImageGalleryTitle">
-		<?php echo $title; ?>
+		<?php  echo $title; ?>
 	</div>
-	<?php } ?>
+	<?php  } ?>
 	
-	<?php   	if($paginator && strlen($paginator->getPages())>0) {
+	<?php    	if($paginator && strlen($paginator->getPages())>0) {
 			if (($showAsThumbnails == true) && (!isset($_REQUEST['aigid'.$bID]))) {
 	?>
-				<div class="AmiantImageGalleryBlockControlBar<?php  echo $bID?>">
+				<div class="AmiantImageGalleryBlockControlBar<?php   echo $randID?>">
 					<div  class="ig_pagination" style="clear: both;">
 						<div class="ig_pagination_controls">
-							<span class="ig_pageLeft"><?php  echo $paginator->getPrevious()?></span>
-							<span class="ig_pager"><?php  echo $paginator->getPages()?></span>
-							<span class="ig_pageRight"><?php  echo $paginator->getNext()?></span>
+							<span class="ig_pageLeft"><?php   echo $paginator->getPrevious()?></span>
+							<span class="ig_pager"><?php   echo $paginator->getPages()?></span>
+							<span class="ig_pageRight"><?php   echo $paginator->getNext()?></span>
 						</div>
 					</div>
 					<div style="clear: both;"></div>
 				</div>
-	<?php   		} 
+	<?php    		} 
 		}
 	?>
 	
 	
-	<?php  if (($showAsThumbnails == true) && (!isset($_REQUEST['aigid'.$bID]))) {
+	<?php   if (($showAsThumbnails == true) && (!isset($_REQUEST['aigid'.$bID]))) {
 		$ih = Loader::helper('image');
 		$th = Loader::helper('text');
 		$uh = Loader::helper('url');
@@ -52,16 +54,16 @@
 			
 			$thumb = $ih->getThumbnail($f, $maxThumbnailWidth, $maxThumbnailHeight);
 			
-			echo '<div id="AmiantImageGalleryThumbnailContainerWrapper'.$imgInfo['fID'].$bID.'" class="AmiantImageGalleryThumbnailContainerWrapper'.$bID.'" ';
+			echo '<div id="AmiantImageGalleryThumbnailContainerWrapper'.$imgInfo['fID'].$randID.'" class="AmiantImageGalleryThumbnailContainerWrapper'.$randID.'" ';
 			if ($c->isEditMode()) {
 				echo ' >';
 			} else {
 				echo 'style="z-index: '.$zindex.';">'; // Fix for Internet Explorer for Bubble Popups;
 			} 
-			echo '<div id="AmiantImageGalleryThumbnailContainer'.$imgInfo['fID'].$bID.'" class="AmiantImageGalleryThumbnailContainer'.$bID.' AmiantImageGalleryThumbnailContainerLoading'.$bID.'" >';
+			echo '<div id="AmiantImageGalleryThumbnailContainer'.$imgInfo['fID'].$randID.'" class="AmiantImageGalleryThumbnailContainer'.$randID.' AmiantImageGalleryThumbnailContainerLoading'.$randID.'" >';
 			
 			if($imgInfo['url']) {
-				echo '<a id="AmiantImageGalleryThumbnailLink'.$imgInfo['fID'].$bID.'" class="AmiantImageGalleryThumbnailLink" href="'.$imgInfo['url'].'">';
+				echo '<a id="AmiantImageGalleryThumbnailLink'.$imgInfo['fID'].$randID.'" class="AmiantImageGalleryThumbnailLink" href="'.$imgInfo['url'].'">';
 			} else {
 				$imgTitle = "";
 				if ($enableZoomMode) {
@@ -71,7 +73,7 @@
 				} else {
 					$url = $uh->setVariable(array("aigid".$bID => $slideNum), false, "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 				}
-				echo '<a id="AmiantImageGalleryThumbnailLink'.$imgInfo['fID'].$bID.'" class="AmiantImageGalleryThumbnailLink zoomModeImage'.$bID.'" rel="aigGroup'.$bID.'" href="'.$url.'" title="'.$imgTitle.'">';
+				echo '<a id="AmiantImageGalleryThumbnailLink'.$imgInfo['fID'].$randID.'" class="AmiantImageGalleryThumbnailLink zoomModeImage'.$randID.'" rel="aigGroup'.$randID.'" href="'.$url.'" title="'.$imgTitle.'">';
 			}
 			
 			echo '</a>';
@@ -126,7 +128,7 @@
 			echo '
 				<script type="text/javascript">
 					$(function () {
-						AmiantImageGalleryBlockLoadImage'.$bID.'("'.$thumb->src.'", "AmiantImageGalleryThumbnail'.$bID.'", "'.intval($thumb->height / -2).'", "'.$imgInfo['caption'].'", "'.$imgInfo['caption'].'", "AmiantImageGalleryThumbnailContainer'.$imgInfo['fID'].$bID.'", "AmiantImageGalleryThumbnailLink'.$imgInfo['fID'].$bID.'");
+						AmiantImageGalleryBlockLoadImage'.$randID.'("'.$thumb->src.'", "AmiantImageGalleryThumbnail'.$randID.'", "'.intval($thumb->height / -2).'", "'.$imgInfo['caption'].'", "'.$imgInfo['caption'].'", "AmiantImageGalleryThumbnailContainer'.$imgInfo['fID'].$randID.'", "AmiantImageGalleryThumbnailLink'.$imgInfo['fID'].$randID.'");
 	    			});
 				</script>
 			';
@@ -137,7 +139,7 @@
 		if($displayThumbnailBubblePopup) {
 			echo '
 				<script type="text/javascript">
-					AmiantImageGalleryBlockCreatePopups'.$bID.'();
+					AmiantImageGalleryBlockCreatePopups'.$randID.'();
 				</script>
 			';
 		}
@@ -146,10 +148,10 @@
 		
 		if ($c->isEditMode()) {
 	?>
-		<div class="ccm-edit-mode-disabled-item" style="width:<?php  echo $width?>px; height:<?php  echo $height?>px;">
-			<div style="padding:8px 0px; padding-top: <?php  echo round($height/2)-10?>px;"><?php  echo t('Content disabled in Edit Mode.'); ?></div>
+		<div class="ccm-edit-mode-disabled-item" style="width:<?php   echo $width?>px; height:<?php   echo $height?>px;">
+			<div style="padding:8px 0px; padding-top: <?php   echo round($height/2)-10?>px;"><?php   echo t('Content disabled in Edit Mode.'); ?></div>
 		</div>
-	<?php 
+	<?php  
 		} else {
 			$ih = Loader::helper('image');
 			
@@ -159,26 +161,26 @@
 			$slideIndex = 0;
 		
 	?>
-		<div class="AmiantImageGalleryBlockControlBar<?php  echo $bID?>">
-			<div class="AmiantImageGallerySlideControllsWrapper<?php  echo $bID?>" style="clear: both;">
-				<span id="AmiantImageGalleryImagesLoadingWaiter<?php  echo $bID?>"><img src="<?php  echo $this->getBlockUrl(); ?>/images/ajax-loader-small.gif" width="16" height="16" alt="" /></span>
-				<span id="AmiantImageGalleryImagesLoaded<?php  echo $bID?>" style="display: none;">Loaded ?</span>
-				<span id="AmiantImageGalleryImageIndex<?php  echo $bID?>">Image X of Y</span> |
-				<span id="AmiantImageGallerySlideControllPrev<?php  echo $bID?>" class="AmiantImageGallerySlideControllPrev<?php  echo $bID?>">&laquo; <?php  echo t('Previous'); ?></span>
+		<div class="AmiantImageGalleryBlockControlBar<?php   echo $randID?>">
+			<div class="AmiantImageGallerySlideControllsWrapper<?php   echo $randID?>" style="clear: both;">
+				<span id="AmiantImageGalleryImagesLoadingWaiter<?php   echo $randID?>"><img src="<?php   echo $this->getBlockUrl(); ?>/images/ajax-loader-small.gif" width="16" height="16" alt="" /></span>
+				<span id="AmiantImageGalleryImagesLoaded<?php   echo $randID?>" style="display: none;">Loaded ?</span>
+				<span id="AmiantImageGalleryImageIndex<?php   echo $randID?>">Image X of Y</span> |
+				<span id="AmiantImageGallerySlideControllPrev<?php   echo $randID?>" class="AmiantImageGallerySlideControllPrev<?php   echo $randID?>">&laquo; <?php   echo t('Previous'); ?></span>
 				|
-				<span id="AmiantImageGallerySlideControllNext<?php  echo $bID?>" class="AmiantImageGallerySlideControllNext<?php  echo $bID?>"><?php  echo t('Next'); ?> &raquo;</span>
+				<span id="AmiantImageGallerySlideControllNext<?php   echo $randID?>" class="AmiantImageGallerySlideControllNext<?php   echo $randID?>"><?php   echo t('Next'); ?> &raquo;</span>
 			</div>
 			<div style="clear: both;"></div>
 		</div>
-		<?php if ($enableSlidesPager) { ?>
-		<div class="AmiantImageGalleryBlockControlBar<?php  echo $bID?>">
-			<span id="AmiantImageGallerySlideControllNav<?php   echo $bID?>" class="AmiantImageGallerySlideControllNav<?php   echo $bID?>"></span>
+		<?php  if ($enableSlidesPager) { ?>
+		<div class="AmiantImageGalleryBlockControlBar<?php   echo $randID?>">
+			<span id="AmiantImageGallerySlideControllNav<?php    echo $randID?>" class="AmiantImageGallerySlideControllNav<?php    echo $randID?>"></span>
 			<div style="clear: both;"></div>
 		</div>
-		<?php } ?>
-	<?php 
+		<?php  } ?>
+	<?php  
 
-			echo '<div id="AmiantImageGallerySlidesWrapper'.$bID.'" class="AmiantImageGallerySlidesWrapper'.$bID.'">';
+			echo '<div id="AmiantImageGallerySlidesWrapper'.$randID.'" class="AmiantImageGallerySlidesWrapper'.$randID.'">';
 			
 			foreach($imagesForFullView as $imgInfo) {
 				if (($displayThumbnailCaption) && (!$imgInfo['caption'])) $displayCaption = false; else $displayCaption = true;
@@ -197,10 +199,10 @@
 				
 				$thumb = $ih->getThumbnail($f, $width, $height);
 				
-				echo '<div class="AmiantImageGallerySlide'.$bID.'" imgsrc="'.$thumb->src.'" slideIndex="'.$slideIndex.'">';
+				echo '<div class="AmiantImageGallerySlide'.$randID.'" imgsrc="'.$thumb->src.'" slideIndex="'.$slideIndex.'">';
 				
 				if ($displaySlideInformation) {
-					echo '<div class="AmiantImageGallerySlideInfo'.$bID.'">';
+					echo '<div class="AmiantImageGallerySlideInfo'.$randID.'">';
 					
 					if ($displayCaption) { 
 						if($imgInfo['url']) {
@@ -226,8 +228,8 @@
 			echo '
 				<script type="text/javascript">
 					$(function () {
-						AmiantImageGalleryBlockCalculateImagesCount'.$bID.'();
-						AmiantImageGalleryBlockStartSlideshow'.$bID.'('.$startingSlide.');
+						AmiantImageGalleryBlockCalculateImagesCount'.$randID.'();
+						AmiantImageGalleryBlockStartSlideshow'.$randID.'('.$startingSlide.');
 					});
 				</script>
 			';
