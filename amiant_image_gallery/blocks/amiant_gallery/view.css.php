@@ -13,7 +13,7 @@
 }
 
 .AmiantImageGallery<?php  echo $bID?>{
-	width: <?php  echo $width?>px;
+	width: <?php if (intval($widthInUnits) == 0) echo $width.'px;'; else echo $width.'%;'; ?>
 	height: <?php  echo $height+25;?>px;
 	text-align: center;
 }
@@ -58,7 +58,9 @@
 .AmiantImageGalleryThumbnail<?php  echo $bID?> {
 	margin: 0 auto;
 	position: relative;
+	<?php if ($cropToFillThumbnail != 1) { ?>
 	top: 50%;
+	<?php } ?>
 }
 
 .AmiantImageGalleryThumbnailContainer<?php  echo $bID?> .AmiantImageGalleryThumbnailLink {
@@ -164,7 +166,7 @@
 }
 
 #AmiantImageGallerySlidesWrapper<?php  echo $bID?> {
-	width: <?php  echo $width?>px;
+	width: <?php if (intval($widthInUnits) == 0) echo $width.'px;'; else echo $width.'%;'; ?>
 	height: <?php  echo $height?>px;
 	text-align: center;
 }
@@ -174,7 +176,7 @@
 }
 
 .AmiantImageGallerySlide<?php  echo $bID?> {
-	width: <?php  echo $width?>px;
+	width: <?php if (intval($widthInUnits) == 0) echo $width.'px;'; else echo $width.'%;'; ?>
 	height: <?php  echo $height?>px;
 	text-align: center;
 }
@@ -212,7 +214,7 @@
 	width: 16px;
 	height: 16px;
 	padding: 0px;
-	margin-left: 10px;
+	margin: 0px 10px !important;
 	float: left;
 }
 
@@ -255,6 +257,10 @@
 .ig_pageLeft {}
 .ig_pageRight {}
 .ig_pager {}
+
+.AmiantImageGalleryBlock<?php  echo $bID?> .ig_pager span {
+	margin: 0 3px;
+}
 
 #zoom-mode-image-title {
 	padding: 10px;

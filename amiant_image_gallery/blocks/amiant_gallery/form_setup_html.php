@@ -3,6 +3,9 @@ defined('C5_EXECUTE') or die(_("Access Denied."));
 $al = Loader::helper('concrete/asset_library');
 $ah = Loader::helper('concrete/interface');
 
+$includeAssetLibrary = true;
+$assetLibraryPassThru = array('type' => 'image');
+
 if (!$zoomModeOverlayOpacity) $zoomModeOverlayOpacity = "0.5";
 if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 
@@ -58,6 +61,7 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 	width: auto;
 	margin-top: 0 !important; 
 	float: none;
+	display: inline;
 	cursor: pointer;
 }
 #AmiantImageGalleryThumbnailOptions .row label.span4 {
@@ -250,13 +254,13 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 	<h2 class="span10"><?php  echo t('Amiant Image Gallery Options'); ?></h2>
 	<div class="row"></div>
 	<div class="row" style="margin-top: 10px;">
-		<div class="span13">
+		<div class="span10">
 			<div class="row">
-				<div class="span7">
+				<div class="span5">
 					<?php  echo $form->label('title', t('Gallery Title:'));?>&nbsp;
-					<?php  echo $form->text('title', $title, array('style' => 'width: 250px;'));?>
+					<?php  echo $form->text('title', $title, array('style' => 'width: 200px;'));?>
 				</div>
-				<div class="span6">
+				<div class="span5">
 					<span class="label notice"><?php echo t('Notice'); ?></span>
 					<?php echo t('Will be showed only if the title field not empty.'); ?>
 				</div>
@@ -267,25 +271,27 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 	<div class="items-group-separator"></div>
 	
 	<div class="row">
-		<div class="span11">
+		<div class="span10">
 			<div class="row">
 				<div class="span5">
 					<div class="row">
 						<div class="span5">
 							<?php  echo $form->label('width', t('Width:'));?>&nbsp;
 							<input type="number" name="width" id="width" value="<?php echo $width; ?>" style="width: 50px;" />
+							<input type="radio" name="widthInUnits" value="0" <?php if (intval($widthInUnits) == 0) echo 'checked'; ?>> px
+							<input type="radio" name="widthInUnits" value="1" <?php if (intval($widthInUnits) == 1) echo 'checked'; ?>> %
 							<span class="label important"><?php echo t('Required'); ?></span>
 						</div>
 						<div class="span5">
 							<?php  echo $form->label('height', t('Height:'));?>&nbsp;
-							<input type="number" name="height" id="height" value="<?php echo $height; ?>" style="width: 50px;" />
+							<input type="number" name="height" id="height" value="<?php echo $height; ?>" style="width: 50px;" /> px
 							<span class="label important"><?php echo t('Required'); ?></span>
 						</div>
 					</div>
 				</div>
-				<div class="span6">
+				<div class="span5">
 					<p><?php  echo t('This is a size of Amiant Image Gallery block container.'); ?></p>
-					<p><?php  echo t('Must be set to same size as images or higher.'); ?></p>
+					<p><?php  echo t('Must be set to same size as images (slides) or higher.'); ?></p>
 				</div>
 			</div>
 		</div>
@@ -334,17 +340,17 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 	<div class="items-group-separator"></div>
 	
 	<div class="row">
-		<div class="span12">
+		<div class="span10">
 			<div class="row">
 				<div class="span2">
 					<?php  echo $form->checkbox('autoSlide', 1, $autoSlide); ?>
 					<?php  echo $form->label('autoSlide', t('Auto Play'),array('class' => 'spec-checkbox-label'));?>
 				</div>
-				<div class="span5">
+				<div class="span4">
 					<?php  echo $form->checkbox('pauseOnMouseHover', 1, $pauseOnMouseHover); ?>
 					<?php  echo $form->label('pauseOnMouseHover', t('Pause slideshow on mouse hover'),array('class' => 'spec-checkbox-label'));?>
 				</div>
-				<div class="span5">
+				<div class="span4">
 					<?php  echo $form->checkbox('continuous', 1, $continuous); ?>
 					<?php  echo $form->label('continuous', t('Loop images continuously'),array('class' => 'spec-checkbox-label'));?>
 				</div>
@@ -365,10 +371,10 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 </div>
 </div>
 
-<div id="ccm-thumbnail-options-tab" class="row" style="display:none; margin-top: 15px;">
+<div id="ccm-thumbnail-options-tab" class="row" style="display:none; margin: 15px 0px;">
 <div id="AmiantImageGalleryThumbnailOptions">
-	<h2 class="span13"><?php  echo t('Thumbnail Options'); ?></h2>
-	<div class="span13" id="thumbnails_set_off_warning">
+	<h2 class="span10"><?php  echo t('Thumbnail Options'); ?></h2>
+	<div class="span10" id="thumbnails_set_off_warning">
 		<div class="alert-message warning">
 			<p><?php  echo t('Please turn on "Show As Thumbnails" option on the "Gallery Options" tab, if you want to activate the options below.'); ?></p>
 		</div>
@@ -380,36 +386,30 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 
 			<div class="row">
 				<div class="span10">
-					<div class="row">
-						<label for="maxThumbnailsPerPage" class="span4"><?php echo t('Maximum Thumbnails per page:'); ?></label>
-						<div class="span6">
-							<input type="number" name="maxThumbnailsPerPage" id="maxThumbnailsPerPage" value="<?php echo $maxThumbnailsPerPage; ?>" style="width: 50px;" />
-							<span class="label important"><?php  echo t('Required'); ?></span>
-						</div>
+					<label for="maxThumbnailsPerPage" class="span4"><?php echo t('Maximum Thumbnails per page:'); ?></label>
+					<div class="span6">
+						<input type="number" name="maxThumbnailsPerPage" id="maxThumbnailsPerPage" value="<?php echo $maxThumbnailsPerPage; ?>" style="width: 50px;" />
+						<span class="label important"><?php  echo t('Required'); ?></span>
 					</div>
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="span10">
-					<div class="row">
-						<label for="maxThumbnailWidth" class="span4"><?php echo t('Maximum Thumbnail Width:'); ?></label>
-						<div class="span6">
-							<input type="number" name="maxThumbnailWidth" id="maxThumbnailWidth" value="<?php echo $maxThumbnailWidth; ?>" style="width: 50px;" />
-							<span class="label important"><?php  echo t('Required'); ?></span>
-						</div>
+					<label for="maxThumbnailWidth" class="span4"><?php echo t('Maximum Thumbnail Width:'); ?></label>
+					<div class="span6">
+						<input type="number" name="maxThumbnailWidth" id="maxThumbnailWidth" value="<?php echo $maxThumbnailWidth; ?>" style="width: 50px;" />
+						<span class="label important"><?php  echo t('Required'); ?></span>
 					</div>
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="span10">
-					<div class="row">
-						<label for="maxThumbnailHeight" class="span4"><?php echo t('Maximum Thumbnail Height:'); ?></label>
-						<div class="span6">
-							<input type="number" name="maxThumbnailHeight" id="maxThumbnailHeight" value="<?php echo $maxThumbnailHeight; ?>" style="width: 50px;" />
-							<span class="label important"><?php  echo t('Required'); ?></span>
-						</div>
+					<label for="maxThumbnailHeight" class="span4"><?php echo t('Maximum Thumbnail Height:'); ?></label>
+					<div class="span6">
+						<input type="number" name="maxThumbnailHeight" id="maxThumbnailHeight" value="<?php echo $maxThumbnailHeight; ?>" style="width: 50px;" />
+						<span class="label important"><?php  echo t('Required'); ?></span>
 					</div>
 				</div>
 			</div>
@@ -418,14 +418,21 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 	</div>
 	
 	<div class="row">
-		<div class="span10" style="padding: 15px 0px 5px 25px;">
+		<div class="span10">
 			<?php  echo $form->checkbox('addThumbnailTitleAttr', 1, $addThumbnailTitleAttr); ?>
 			<?php  echo $form->label('addThumbnailTitleAttr', t('Add Title Attribute to IMG tag for thumbnails'),array('class' => 'spec-checkbox-label'));?>
 		</div>
 	</div>
+
+	<div class="row">
+		<div class="span10">
+			<?php  echo $form->checkbox('cropToFillThumbnail', 1, $cropToFillThumbnail); ?>
+			<?php  echo $form->label('cropToFillThumbnail', t('Crop image to fill thumbnail area'),array('class' => 'spec-checkbox-label'));?>
+		</div>
+	</div>
 	
 	<div class="row">
-		<div class="span10" style="padding: 5px 0px 5px 25px;">
+		<div class="span10">
 			<?php  echo $form->checkbox('displayThumbnailBubblePopup', 1, $displayThumbnailBubblePopup); ?>
 			<?php  echo $form->label('displayThumbnailBubblePopup', t('Show Pop-up Bubble with Information for Thumbnails'),array('class' => 'spec-checkbox-label'));?>
 		</div>
@@ -470,9 +477,24 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 </div>
 </div>
 
-<div id="ccm-slide-options-tab" class="row" style="display:none; margin-top: 15px;">
+<div id="ccm-slide-options-tab" class="row" style="display:none; margin: 15px 0px;">
 <div id="AmiantImageGallerySlideOptions">
-	<h2 class="span13"><?php  echo t('Slide Options'); ?></h2>
+	<h2 class="span10"><?php  echo t('Slide Options'); ?></h2>
+
+	<div class="row">
+		<div class="span10">
+			<?php  echo $form->label('maxSlideWidth', t('Maximum Slide Width:'));?>&nbsp;
+			<input type="number" name="maxSlideWidth" id="maxSlideWidth" value="<?php echo $maxSlideWidth; ?>" style="width: 50px;" />
+			<span class="label important"><?php echo t('Required'); ?></span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span10">
+			<?php  echo $form->label('maxSlideHeight', t('Maximum Slide Height:'));?>&nbsp;
+			<input type="number" name="maxSlideHeight" id="maxSlideHeight" value="<?php echo $maxSlideHeight; ?>" style="width: 50px;" />
+			<span class="label important"><?php echo t('Required'); ?></span>
+		</div>
+	</div>
 
 	<div class="row">
 		<div class="span10" style="padding: 15px 0px 5px 25px;">
@@ -485,7 +507,6 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 		<div class="span10" style="padding: 15px 0px 5px 25px;">
 			<?php  echo $form->checkbox('enableSlidesPager', 1, $enableSlidesPager); ?>
 			<?php  echo $form->label('enableSlidesPager', t('Show pager for slides'),array('class' => 'spec-checkbox-label'));?>
-			<span class="label success"><?php echo t('New')?></span>
 		</div>
 	</div>
 	
@@ -527,6 +548,24 @@ if (!$zoomModeOverlayColor) $zoomModeOverlayColor = "#000000";
 				<?php  echo $form->checkbox('displaySlideDownloadLink', 1, $displaySlideDownloadLink); ?>
 				<?php  echo $form->label('displaySlideDownloadLink', t('Show a Link to Download the File'),array('class' => 'spec-checkbox-label'));?>
 			</div>
+		</div>
+	</div>
+
+	<h2 class="span10" style="margin-top: 25px;"><?php  echo t('Watermark'); ?></h2>
+
+	<div class="row">
+		<div class="span10" style="padding: 15px 0px 5px 25px;">
+			<?php  echo $form->checkbox('enableWatermark', 1, $enableWatermark); ?>
+			<?php  echo $form->label('enableWatermark', t('Place watermark on images <span style="color: red; font-weight: bold;">(Only PNG image)</span>'),array('class' => 'spec-checkbox-label'));?>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="span10" style="padding: 15px 0px 5px 25px;">
+			<?php 
+			$watermarkFile = File::getByID($fIDWatermark);
+			echo $al->image('watermarkFile', 'fIDWatermark', 'Watermark Image (Only PNG image)', $watermarkFile);
+			?>
 		</div>
 	</div>
 	

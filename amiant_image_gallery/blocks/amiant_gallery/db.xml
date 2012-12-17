@@ -10,6 +10,7 @@
 		<field name="maxHeight" type="I"><unsigned /></field>
 		<field name="height" type="I"><unsigned /></field>
 		<field name="width" type="I"><unsigned /></field>
+		<field name="widthInUnits" type="I"><unsigned /></field>
 		<field name="title" type="C" size="255" />
 		<field name="continuous" type="I"><unsigned /></field>
 		<field name="autoSlide" type="I"><unsigned /></field>
@@ -22,6 +23,7 @@
 		<field name="maxThumbnailHeight" type="I"><unsigned /></field>
 		<field name="maxThumbnailsPerPage" type="I"><unsigned /></field>
 		<field name="addThumbnailTitleAttr" type="I"><unsigned /></field>
+		<field name="cropToFillThumbnail" type="I"><unsigned /></field>
 		<field name="displayThumbnailBubblePopup" type="I"><unsigned /></field>
 		<field name="displayThumbnailCaption" type="I"><unsigned /></field>
 		<field name="displayThumbnailFileName" type="I"><unsigned /></field>
@@ -36,6 +38,10 @@
 		<field name="displaySlideFileSize" type="I"><unsigned /></field>
 		<field name="displaySlideDownloadLink" type="I"><unsigned /></field>
 		<field name="enableSlidesPager" type="I"><unsigned /></field>
+		<field name="enableWatermark" type="I"><unsigned /></field>
+		<field name="fIDWatermark" type="I"><unsigned /></field>
+		<field name="maxSlideHeight" type="I"><unsigned /></field>
+		<field name="maxSlideWidth" type="I"><unsigned /></field>
 		<field name="enableZoomMode" type="I"><unsigned /></field>
 		<field name="zoomModeEffect" type="I"><unsigned /></field>
 		<field name="zoomModeEffectSpeed" type="I"><unsigned /></field>

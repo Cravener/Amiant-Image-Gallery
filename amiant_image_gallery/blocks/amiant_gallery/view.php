@@ -35,6 +35,7 @@
 	
 	<?php  if (($showAsThumbnails == true) && (!isset($_REQUEST['aigid'.$bID]))) {
 		$ih = Loader::helper('image');
+		$ip = Loader::helper('imageprocessor', 'amiant_image_gallery');
 		$th = Loader::helper('text');
 		$uh = Loader::helper('url');
 		
@@ -49,8 +50,12 @@
 			$zindex--;
 			
 			$f = File::getByID($imgInfo['fID']);
-			
-			$thumb = $ih->getThumbnail($f, $maxThumbnailWidth, $maxThumbnailHeight);
+
+			if ($cropToFillThumbnail == 1) {
+				$thumbsrc = $ip->resizeAndCrop($bID, $f, $maxThumbnailWidth, $maxThumbnailHeight);
+			} else {
+				$thumb = $ih->getThumbnail($f, $maxThumbnailWidth, $maxThumbnailHeight);
+			}
 			
 			echo '<div id="AmiantImageGalleryThumbnailContainerWrapper'.$imgInfo['fID'].$bID.'" class="AmiantImageGalleryThumbnailContainerWrapper'.$bID.'" ';
 			if ($c->isEditMode()) {
@@ -65,8 +70,18 @@
 			} else {
 				$imgTitle = "";
 				if ($enableZoomMode) {
-					$fullsizeImg = $ih->getThumbnail($f, $zoomModeMaxWidth, $zoomModeMaxHeight);
-					$url = $fullsizeImg->src;
+					if ($enableWatermark == 1) {
+						$watermarkFile = File::getByID($fIDWatermark);
+						if (is_object($watermarkFile)) {
+							$url = $ip->resizeAndWatermark($bID, $f, $watermarkFile->getPath(), $zoomModeMaxWidth, $zoomModeMaxHeight);
+						} else {
+							$fullsizeImg = $ih->getThumbnail($f, $zoomModeMaxWidth, $zoomModeMaxHeight);
+							$url = $fullsizeImg->src;
+						}
+					} else {
+						$fullsizeImg = $ih->getThumbnail($f, $zoomModeMaxWidth, $zoomModeMaxHeight);
+						$url = $fullsizeImg->src;
+					}
 					if ($zoomModeDisplayInformation && $zoomModeDisplayCaption) $imgTitle = $imgInfo['caption'];
 				} else {
 					$url = $uh->setVariable(array("aigid".$bID => $slideNum), false, "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
@@ -122,14 +137,23 @@
 			
 			echo '</div> ';
 			
-			
-			echo '
-				<script type="text/javascript">
-					$(function () {
-						AmiantImageGalleryBlockLoadImage'.$bID.'("'.$thumb->src.'", "AmiantImageGalleryThumbnail'.$bID.'", "'.intval($thumb->height / -2).'", "'.$imgInfo['caption'].'", "'.$imgInfo['caption'].'", "AmiantImageGalleryThumbnailContainer'.$imgInfo['fID'].$bID.'", "AmiantImageGalleryThumbnailLink'.$imgInfo['fID'].$bID.'");
-	    			});
-				</script>
-			';
+			if ($cropToFillThumbnail == 1) {
+				echo '
+					<script type="text/javascript">
+						$(function () {
+							AmiantImageGalleryBlockLoadImage'.$bID.'("'.$thumbsrc.'", "AmiantImageGalleryThumbnail'.$bID.'", "0", "'.$imgInfo['caption'].'", "'.$imgInfo['caption'].'", "AmiantImageGalleryThumbnailContainer'.$imgInfo['fID'].$bID.'", "AmiantImageGalleryThumbnailLink'.$imgInfo['fID'].$bID.'");
+						});
+					</script>
+				';
+			} else {
+				echo '
+					<script type="text/javascript">
+						$(function () {
+							AmiantImageGalleryBlockLoadImage'.$bID.'("'.$thumb->src.'", "AmiantImageGalleryThumbnail'.$bID.'", "'.intval($thumb->height / -2).'", "'.$imgInfo['caption'].'", "'.$imgInfo['caption'].'", "AmiantImageGalleryThumbnailContainer'.$imgInfo['fID'].$bID.'", "AmiantImageGalleryThumbnailLink'.$imgInfo['fID'].$bID.'");
+						});
+					</script>
+				';
+			}
 			
 			$slideNum++;
 		}
@@ -151,6 +175,7 @@
 		</div>
 	<?php 
 		} else {
+			$ip = Loader::helper('imageprocessor', 'amiant_image_gallery');
 			$ih = Loader::helper('image');
 			
 			if (!$showAsThumbnails)	$startingSlide = 0;
@@ -194,10 +219,23 @@
 				$slideIndex++;
 				
 				$f = File::getByID($imgInfo['fID']);
+
+				if ($enableWatermark == 1) {
+					$watermarkFile = File::getByID($fIDWatermark);
+					if (is_object($watermarkFile)) {
+						$url = $ip->resizeAndWatermark($bID, $f, $watermarkFile->getPath(), $maxSlideWidth, $maxSlideHeight);
+					} else {
+						$thumb = $ih->getThumbnail($f, $maxSlideWidth, $maxSlideHeight);
+						$url = $thumb->src;
+					}
+				} else {
+					$thumb = $ih->getThumbnail($f, $maxSlideWidth, $maxSlideHeight);
+					$url = $thumb->src;
+				}
 				
-				$thumb = $ih->getThumbnail($f, $width, $height);
 				
-				echo '<div class="AmiantImageGallerySlide'.$bID.'" imgsrc="'.$thumb->src.'" slideIndex="'.$slideIndex.'">';
+				
+				echo '<div class="AmiantImageGallerySlide'.$bID.'" imgsrc="'.$url.'" slideIndex="'.$slideIndex.'">';
 				
 				if ($displaySlideInformation) {
 					echo '<div class="AmiantImageGallerySlideInfo'.$bID.'">';

@@ -23,11 +23,11 @@ defined('C5_EXECUTE') or die(_("Access Denied."));
 class AmiantGalleryBlockController extends BlockController {
 
     protected $btTable = 'btAmiantGallery';
-    protected $btInterfaceWidth = "770";
+    protected $btInterfaceWidth = "850";
     protected $btInterfaceHeight = "500";
     protected $btWrapperClass = 'ccm-ui';
     
-    protected $productVersion = "0.5.2-20120130";
+    protected $productVersion = "0.7.1-20121217";
     
     // array of transitions for jQuery Cycle
     protected $transitions = array('0' => 'blindX',
@@ -100,7 +100,9 @@ class AmiantGalleryBlockController extends BlockController {
             'set-zoom-mode-effect-speed' => t('Please set the effect speed in milliseconds for Zoom Mode.'),
             'set-zoom-mode-max-width' => t('Please set the maximum image width for Zoom Mode.'),
             'set-zoom-mode-max-height' => t('Please set the maximum image height for Zoom Mode.'),
-            'set-item-to-show-in-zoom-mode-information' => t('Please select at least one item to display in the Zoom Mode information area, or disable this option.')
+            'set-item-to-show-in-zoom-mode-information' => t('Please select at least one item to display in the Zoom Mode information area, or disable this option.'),
+            'set-watermark-image-file' => t('Please choose image for watermark or disable this option.'),
+            'set-slide-size' => t('Please set maximum width and height for slides.')
         );
     }
 
@@ -126,10 +128,9 @@ class AmiantGalleryBlockController extends BlockController {
         $type = ($this->fsID > 0) ? 'FILESET' : 'CUSTOM';
         $this->set('type', $type);
         $this->set('bID', $this->bID);
-        $width = ($this->width);
-        $height = ($this->height);
-        $this->set('width', $width);
-        $this->set('height', $height);
+        $this->set('width', $this->width);
+        $this->set('widthInUnits', $this->widthInUnits);
+        $this->set('height', $this->height);
         $this->set('title', $this->title);
         $this->set('autoSlide', $this->autoSlide);
         $this->set('pauseOnMouseHover', $this->pauseOnMouseHover);
@@ -143,6 +144,7 @@ class AmiantGalleryBlockController extends BlockController {
         $this->set('maxThumbnailWidth', $this->maxThumbnailWidth);
         $this->set('maxThumbnailHeight', $this->maxThumbnailHeight);
         $this->set('maxThumbnailsPerPage', $this->maxThumbnailsPerPage);
+        $this->set('cropToFillThumbnail', $this->cropToFillThumbnail);
 
         $this->set('alignSlideToCenter', $this->alignSlideToCenter);
         $this->set('displaySlideInformation', $this->displaySlideInformation);
@@ -152,6 +154,12 @@ class AmiantGalleryBlockController extends BlockController {
         $this->set('displaySlideFileSize', $this->displaySlideFileSize);
         $this->set('displaySlideDownloadLink', $this->displaySlideDownloadLink);
         $this->set('enableSlidesPager', $this->enableSlidesPager);
+
+		$this->set('enableWatermark', $this->enableWatermark);
+		$this->set('fIDWatermark', $this->fIDWatermark);
+
+        $this->set('maxSlideHeight', $this->maxSlideHeight);
+        $this->set('maxSlideWidth', $this->maxSlideWidth);
         
         $this->set('zoomModeEffect', $this->zoomModeEffect);
         $this->set('zoomModeEffectSpeed', $this->zoomModeEffectSpeed);
@@ -185,12 +193,9 @@ class AmiantGalleryBlockController extends BlockController {
         $b = $this->getBlockObject();
         $bv = new BlockView();
         $bv->setBlockObject($b);
-        //if ($this->enableZoomMode) {
-			$this->addHeaderItem('<link rel="stylesheet" type="text/css" href="' . $bv->getBlockURL() . '/jquery.fancybox-1.3.4.css" />');
-			$this->addHeaderItem('<script type="text/javascript" src="' . $bv->getBlockURL() . '/jquery.fancybox-1.3.4.pack.js"></script>');
-		//} else {
-			$this->addHeaderItem('<script type="text/javascript" src="' . $bv->getBlockURL() . '/jquery.cycle.all.min.js"></script>');
-		//}
+		$this->addHeaderItem('<link rel="stylesheet" type="text/css" href="' . $bv->getBlockURL() . '/jquery.fancybox-1.3.4.css" />');
+		$this->addHeaderItem('<script type="text/javascript" src="' . $bv->getBlockURL() . '/jquery.fancybox-1.3.4.pack.js"></script>');
+		$this->addHeaderItem('<script type="text/javascript" src="' . $bv->getBlockURL() . '/jquery.cycle.all.min.js"></script>');
     }
 
 	/**
@@ -500,6 +505,7 @@ class AmiantGalleryBlockController extends BlockController {
         $args['title'] = $data['title'];
         $args['height'] = intval($data['height']);
         $args['width'] = intval($data['width']);
+        $args['widthInUnits'] = intval($data['widthInUnits']);
         $args['autoSlide'] = intval($data['autoSlide']);
         $args['pauseOnMouseHover'] = intval($data['pauseOnMouseHover']);
         $args['pause'] = intval($data['pause'] * 1000);
@@ -516,6 +522,7 @@ class AmiantGalleryBlockController extends BlockController {
         $args['maxThumbnailsPerPage'] = intval($data['maxThumbnailsPerPage']);
 
         $args['addThumbnailTitleAttr'] = intval($data['addThumbnailTitleAttr']);
+		$args['cropToFillThumbnail'] = intval($data['cropToFillThumbnail']);
         $args['displayThumbnailBubblePopup'] = intval($data['displayThumbnailBubblePopup']);
         $args['displayThumbnailCaption'] = intval($data['displayThumbnailCaption']);
         $args['displayThumbnailFileName'] = intval($data['displayThumbnailFileName']);
@@ -531,6 +538,12 @@ class AmiantGalleryBlockController extends BlockController {
         $args['displaySlideFileSize'] = intval($data['displaySlideFileSize']);
         $args['displaySlideDownloadLink'] = intval($data['displaySlideDownloadLink']);
         $args['enableSlidesPager'] = intval($data['enableSlidesPager']);
+
+		$args['enableWatermark'] = intval($data['enableWatermark']);
+        $args['fIDWatermark'] = intval($data['fIDWatermark']);
+
+        $args['maxSlideHeight'] = intval($data['maxSlideHeight']);
+        $args['maxSlideWidth'] = intval($data['maxSlideWidth']);
 
 		$args['zoomModeEffect'] = intval($data['zoomModeEffect']);
 		$args['zoomModeEffectSpeed'] = intval($data['zoomModeEffectSpeed']);
@@ -584,6 +597,9 @@ class AmiantGalleryBlockController extends BlockController {
                 $pos++;
             }
         }
+
+        $ip = Loader::helper('imageprocessor', 'amiant_image_gallery');
+        $ip->clearImageCache();
 
         parent::save($args);
     }
