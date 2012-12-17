@@ -128,63 +128,12 @@ class AmiantGalleryBlockController extends BlockController {
         $type = ($this->fsID > 0) ? 'FILESET' : 'CUSTOM';
         $this->set('type', $type);
         $this->set('bID', $this->bID);
-        $this->set('width', $this->width);
-        $this->set('widthInUnits', $this->widthInUnits);
-        $this->set('height', $this->height);
-        $this->set('title', $this->title);
-        $this->set('autoSlide', $this->autoSlide);
-        $this->set('pauseOnMouseHover', $this->pauseOnMouseHover);
         $this->set('pause', ($this->pause) ? $this->pause : 2000);
-        $this->set('continuous', $this->continuous);
-        $this->set('transitionFX', $this->transitionFX);
         $this->set('speed', ($this->speed) ? $this->speed : 800);
-
-        $this->set('showAsThumbnails', $this->showAsThumbnails);
-        $this->set('enableZoomMode', $this->enableZoomMode);
-        $this->set('maxThumbnailWidth', $this->maxThumbnailWidth);
-        $this->set('maxThumbnailHeight', $this->maxThumbnailHeight);
-        $this->set('maxThumbnailsPerPage', $this->maxThumbnailsPerPage);
-        $this->set('cropToFillThumbnail', $this->cropToFillThumbnail);
-
-        $this->set('alignSlideToCenter', $this->alignSlideToCenter);
-        $this->set('displaySlideInformation', $this->displaySlideInformation);
-        $this->set('displaySlideCaption', $this->displaySlideCaption);
-        $this->set('displaySlideFileName', $this->displaySlideFileName);
-        $this->set('displaySlideFileType', $this->displaySlideFileType);
-        $this->set('displaySlideFileSize', $this->displaySlideFileSize);
-        $this->set('displaySlideDownloadLink', $this->displaySlideDownloadLink);
-        $this->set('enableSlidesPager', $this->enableSlidesPager);
-
-		$this->set('enableWatermark', $this->enableWatermark);
-		$this->set('fIDWatermark', $this->fIDWatermark);
-
-        $this->set('maxSlideHeight', $this->maxSlideHeight);
-        $this->set('maxSlideWidth', $this->maxSlideWidth);
-        
-        $this->set('zoomModeEffect', $this->zoomModeEffect);
-        $this->set('zoomModeEffectSpeed', $this->zoomModeEffectSpeed);
-        $this->set('zoomModeShowCloseButton', $this->zoomModeShowCloseButton);
-        $this->set('zoomModeShowNavArrows', $this->zoomModeShowNavArrows);
-        $this->set('zoomModeEnableEscButton', $this->zoomModeEnableEscButton);
-        $this->set('zoomModeMaxWidth', $this->zoomModeMaxWidth);
-        $this->set('zoomModeMaxHeight', $this->zoomModeMaxHeight);
-        $this->set('zoomModeDisplayInformation', $this->zoomModeDisplayInformation);
-        $this->set('zoomModeDisplayCaption', $this->zoomModeDisplayCaption);
-        $this->set('zoomModeInformationPosition', $this->zoomModeInformationPosition);
-        $this->set('zoomModeShowOverlay', $this->zoomModeShowOverlay);
-        $this->set('zoomModeOverlayOpacity', $this->zoomModeOverlayOpacity);
-        $this->set('zoomModeOverlayColor', $this->zoomModeOverlayColor);
-        $this->set('zoomModeHideOnOverlayClick', $this->zoomModeHideOnOverlayClick);
-        $this->set('zoomModeHideOnContentClick', $this->zoomModeHideOnContentClick);
-        $this->set('zoomModeCenterOnScroll', $this->zoomModeCenterOnScroll);
-        $this->set('zoomModeCyclic', $this->zoomModeCyclic);
-        $this->set('zoomModeAutoScale', $this->zoomModeAutoScale);
-        $this->set('zoomModeDisplayImageIndex', $this->zoomModeDisplayImageIndex);
-        
     }
 
     function view() {
-        
+
     }
 
     public function on_page_view() {
@@ -193,9 +142,9 @@ class AmiantGalleryBlockController extends BlockController {
         $b = $this->getBlockObject();
         $bv = new BlockView();
         $bv->setBlockObject($b);
-		$this->addHeaderItem('<link rel="stylesheet" type="text/css" href="' . $bv->getBlockURL() . '/jquery.fancybox-1.3.4.css" />');
-		$this->addHeaderItem('<script type="text/javascript" src="' . $bv->getBlockURL() . '/jquery.fancybox-1.3.4.pack.js"></script>');
-		$this->addHeaderItem('<script type="text/javascript" src="' . $bv->getBlockURL() . '/jquery.cycle.all.min.js"></script>');
+		$this->addHeaderItem($html->css($bv->getBlockURL().'/jquery.fancybox-1.3.4.css'));
+		$this->addHeaderItem($html->javascript($bv->getBlockURL().'/jquery.fancybox-1.3.4.pack.js'));
+		$this->addHeaderItem($html->javascript($bv->getBlockURL().'/jquery.cycle.all.min.js'));
     }
 
 	/**
