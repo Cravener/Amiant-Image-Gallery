@@ -170,7 +170,7 @@
 		
 		if ($c->isEditMode()) {
 	?>
-		<div class="ccm-edit-mode-disabled-item" style="width:<?php  echo $width?>px; height:<?php  echo $height?>px;">
+		<div class="ccm-edit-mode-disabled-item" style="width:<?php  echo $maxSlideWidth?>px; height:<?php  echo $maxSlideHeight?>px;">
 			<div style="padding:8px 0px; padding-top: <?php  echo round($height/2)-10?>px;"><?php  echo t('Content disabled in Edit Mode.'); ?></div>
 		</div>
 	<?php 
