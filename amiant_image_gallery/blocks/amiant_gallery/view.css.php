@@ -1,6 +1,14 @@
-<?php    defined('C5_EXECUTE') or die(_("Access Denied.")); ?>
+<?php
+	header("Content-type: text/css", true);
 
-<style type="text/css" media="all">
+	$bID = $_REQUEST['bID'];
+	$widthInUnits = $_REQUEST['wU'];
+	$width = $_REQUEST['w'];
+	$height = $_REQUEST['h'];
+	$maxThumbnailWidth = $_REQUEST['mTW'];
+	$maxThumbnailHeight = $_REQUEST['mTH'];
+	$cropToFillThumbnail = $_REQUEST['crop'];
+?>
 
 .AmiantImageGalleryBlock<?php  echo $bID?>{
 	position: relative;
@@ -44,13 +52,13 @@
 }
 
 .AmiantImageGalleryThumbnailContainerLoading<?php  echo $bID?> {
-	background-image: url('<?php  echo $this->getBlockURL()."/images/ajax-loader.gif"; ?>');
+	background-image: url('images/ajax-loader.gif');
 	background-position: center center;
 	background-repeat: no-repeat;
 }
 
 .AmiantImageGalleryThumbnailContainerError<?php  echo $bID?> {
-	background-image: url('<?php  echo $this->getBlockURL()."/images/error.png"; ?>');
+	background-image: url('images/error.png');
 	background-position: center center;
 	background-repeat: no-repeat;
 }
@@ -103,40 +111,40 @@
 .AmiantImageGalleryBlockPopup td.top_left {
 	width: 15px;
 	height: 20px;
-	background: url('<?php  echo $this->getBlockURL()."/images/popup_bubble_top_left_corner_arrow.png"; ?>') bottom right no-repeat;
+	background: url('images/popup_bubble_top_left_corner_arrow.png') bottom right no-repeat;
 }
 
 .AmiantImageGalleryBlockPopup td.top_left_small {
 	width: 50px;
 	height: 20px;
-	background: url('<?php  echo $this->getBlockURL()."/images/popup_bubble_top.png"; ?>') bottom right repeat-x;
+	background: url('images/popup_bubble_top.png') bottom right repeat-x;
 }
 
 .AmiantImageGalleryBlockPopup td.top_right {
 	width: 17px;
 	height: 20px;
-	background: url('<?php  echo $this->getBlockURL()."/images/popup_bubble_top_right_corner.png"; ?>') bottom left no-repeat;
+	background: url('images/popup_bubble_top_right_corner.png') bottom left no-repeat;
 }
 
 .AmiantImageGalleryBlockPopup td.top_center {
 	width: 26px;
 	height: 20px;
-	background: url('<?php  echo $this->getBlockURL()."/images/popup_bubble_top_arrow.png"; ?>') bottom left no-repeat;
+	background: url('images/popup_bubble_top_arrow.png') bottom left no-repeat;
 }
 
 .AmiantImageGalleryBlockPopup td.top {
 	height: 20px;
-	background: url('<?php  echo $this->getBlockURL()."/images/popup_bubble_top.png"; ?>') bottom left repeat-x;
+	background: url('images/popup_bubble_top.png') bottom left repeat-x;
 }
 
 .AmiantImageGalleryBlockPopup td.left {
 	width: 15px;
-	background: url('<?php  echo $this->getBlockURL()."/images/popup_bubble_left.png"; ?>') top right repeat-y;
+	background: url('images/popup_bubble_left.png') top right repeat-y;
 }
 
 .AmiantImageGalleryBlockPopup td.right {
 	width: 17px;
-	background: url('<?php  echo $this->getBlockURL()."/images/popup_bubble_right.png"; ?>') repeat-y;
+	background: url('images/popup_bubble_right.png') repeat-y;
 }
 
 .AmiantImageGalleryBlockPopup td.center {
@@ -151,18 +159,18 @@
 .AmiantImageGalleryBlockPopup td.bottom_left {
 	width: 15px;
 	height: 17px;
-	background: url('<?php  echo $this->getBlockURL()."/images/popup_bubble_bottom_left_corner.png"; ?>') top right no-repeat;
+	background: url('images/popup_bubble_bottom_left_corner.png') top right no-repeat;
 }
 
 .AmiantImageGalleryBlockPopup td.bottom_right {
 	width: 17px;
 	height: 17px;
-	background: url('<?php  echo $this->getBlockURL()."/images/popup_bubble_bottom_right_corner.png"; ?>') no-repeat; 
+	background: url('images/popup_bubble_bottom_right_corner.png') no-repeat; 
 }
 
 .AmiantImageGalleryBlockPopup td.bottom {
 	height: 17px;
-	background: url('<?php  echo $this->getBlockURL()."/images/popup_bubble_bottom.png"; ?>') repeat-x;
+	background: url('images/popup_bubble_bottom.png') repeat-x;
 }
 
 #AmiantImageGallerySlidesWrapper<?php  echo $bID?> {
@@ -265,5 +273,3 @@
 #zoom-mode-image-title {
 	padding: 10px;
 }
-	
-</style>

@@ -1,6 +1,7 @@
 <?php    defined('C5_EXECUTE') or die(_("Access Denied.")); ?>
 
 <script type="text/javascript">
+/* <![CDATA[ */
 	
 	var alreadyInitializedFancyBox<?php  echo $bID?> = false;
 	var alreadyInitializedPopups<?php  echo $bID?> = false;
@@ -196,16 +197,25 @@
 	
 	function formatTitle<?php  echo $bID?>(title, currentArray, currentIndex, currentOpts) {
 		var titleString = '';
+		var titleContent = '';
+		
 		<?php  if ($zoomModeDisplayInformation) { ?>
 			titleString = '<div id="zoom-mode-image-title">';
 			<?php  if ($zoomModeDisplayCaption) { ?>
-			titleString += (title && title.length ? '<b>' + title + '</b><br />' : '' );
+			titleContent += (title && title.length ? '<b>' + title + '</b><br />' : '' );
 			<?php  } ?>
 			<?php  if ($zoomModeDisplayImageIndex) { ?>
-			titleString += '<?php  echo t('Image');?> ' + (currentIndex + 1) + ' <?php  echo t('of'); ?> ' + currentArray.length;
+			titleContent += '<?php  echo t('Image');?> ' + (currentIndex + 1) + ' <?php  echo t('of'); ?> ' + currentArray.length;
 			<?php  } ?>
-			titleString += '</div>';
+
+			if (titleContent.length) {
+				titleString += titleContent;
+				titleString += '</div>';
+			} else {
+				titleString = '';
+			}
 		<?php  } ?>
+		
 		return titleString;
 	}
 
@@ -240,5 +250,5 @@
 	<?php  } ?>
 	
 
-  	
+/* ]]> */  	
 </script>

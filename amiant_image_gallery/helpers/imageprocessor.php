@@ -2,7 +2,7 @@
 /**
  * @package Amiant Image Gallery
  * @author Count Raven Amiant <cravener@gmail.com>
- * @copyright  Copyright (c) 2010-2012 Count Raven Amiant. (http://countraven.blogspot.com)
+ * @copyright  Copyright (c) 2010-2013 Amiant Web Development Solutions. (http://amiant-dev.ru/)
  * @license    http://www.gnu.org/licenses/gpl-2.0.html     GNU GPL Version 2
  */
 
@@ -11,7 +11,7 @@
  *
  * @package Amiant Image Gallery
  * @author Count Raven Amiant <cravener@gmail.com>
- * @copyright  Copyright (c) 2010-2012 Count Raven Amiant. (http://countraven.blogspot.com)
+ * @copyright  Copyright (c) 2010-2013 Amiant Web Development Solutions. (http://amiant-dev.ru/)
  * @license    http://www.gnu.org/licenses/gpl-2.0.html     GNU GPL Version 2
  *
  */

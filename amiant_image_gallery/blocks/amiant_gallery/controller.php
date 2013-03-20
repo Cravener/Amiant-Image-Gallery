@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 /**
  * @package Amiant Image Gallery
  * @author Count Raven Amiant <cravener@gmail.com>
- * @copyright  Copyright (c) 2010-2012 Count Raven Amiant. (http://countraven.blogspot.com)
+ * @copyright  Copyright (c) 2010-2013 Amiant Web Development Solutions. (http://amiant-dev.ru/)
  * @license    http://www.gnu.org/licenses/gpl-2.0.html     GNU GPL Version 2
  *
  */
@@ -13,7 +13,7 @@
  *
  * @package Amiant Image Gallery
  * @author Count Raven Amiant <cravener@gmail.com>
- * @copyright  Copyright (c) 2010-2012 Count Raven Amiant. (http://countraven.blogspot.com)
+ * @copyright  Copyright (c) 2010-2013 Amiant Web Development Solutions. (http://amiant-dev.ru/)
  * @license    http://www.gnu.org/licenses/gpl-2.0.html     GNU GPL Version 2
  *
  */
@@ -27,7 +27,7 @@ class AmiantGalleryBlockController extends BlockController {
     protected $btInterfaceHeight = "500";
     protected $btWrapperClass = 'ccm-ui';
     
-    protected $productVersion = "0.7.1-20121217";
+    protected $productVersion = "0.7.3-20130321";
     
     // array of transitions for jQuery Cycle
     protected $transitions = array('0' => 'blindX',
@@ -145,6 +145,16 @@ class AmiantGalleryBlockController extends BlockController {
 		$this->addHeaderItem($html->css($bv->getBlockURL().'/jquery.fancybox-1.3.4.css'));
 		$this->addHeaderItem($html->javascript($bv->getBlockURL().'/jquery.fancybox-1.3.4.pack.js'));
 		$this->addHeaderItem($html->javascript($bv->getBlockURL().'/jquery.cycle.all.min.js'));
+
+		$css_query = '?bID='.intval($this->bID);
+		$css_query .= '&wU='.intval($this->widthInUnits);
+		$css_query .= '&w='.intval($this->width);
+		$css_query .= '&h='.intval($this->height);
+		$css_query .= '&mTW='.intval($this->maxThumbnailWidth);
+		$css_query .= '&mTH='.intval($this->maxThumbnailHeight);
+		$css_query .= '&crop='.intval($this->cropToFillThumbnail);
+		
+		$this->addHeaderItem($html->css($bv->getBlockURL().'/view.css.php'.$css_query));
     }
 
 	/**
@@ -214,14 +224,14 @@ class AmiantGalleryBlockController extends BlockController {
 
             $fv = $f->getApprovedVersion();
 
-            if ($akUrl) {
+            if (is_object($akUrl)) {
                 $vo = $f->getAttributeValueObject($akUrl);
                 if (is_object($vo)) {
                     $image['url'] = $vo->getValue('url');
                 }
             }
 
-            if ($akCaption) {
+            if (is_object($akCaption)) {
                 $vo = $f->getAttributeValueObject($akCaption);
                 if (is_object($vo)) {
                     $image['caption'] = $vo->getValue('caption');
@@ -289,14 +299,14 @@ class AmiantGalleryBlockController extends BlockController {
 
             $fv = $f->getApprovedVersion();
 
-            if ($akUrl) {
+            if (is_object($akUrl)) {
                 $vo = $f->getAttributeValueObject($akUrl);
                 if (is_object($vo)) {
                     $image['url'] = $vo->getValue('url');
                 }
             }
 
-            if ($akCaption) {
+            if (is_object($akCaption)) {
                 $vo = $f->getAttributeValueObject($akCaption);
                 if (is_object($vo)) {
                     $image['caption'] = $vo->getValue('caption');

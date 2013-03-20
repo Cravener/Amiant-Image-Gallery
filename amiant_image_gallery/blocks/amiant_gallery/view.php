@@ -1,7 +1,6 @@
 <?php    defined('C5_EXECUTE') or die(_("Access Denied.")); ?>
 
 <?php 
-	include("view.css.php");
 	include("view.js.php");
 	
 	$c = Page::getCurrentPage();
