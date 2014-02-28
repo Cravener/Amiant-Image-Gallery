@@ -154,6 +154,7 @@
 	font-weight: normal;
 	font-size: 10px;
 	color: #333333;
+	vertical-align: middle !important;
 }
 
 .AmiantImageGalleryBlockPopup td.bottom_left {
