@@ -39,6 +39,3 @@ Spanish (Thanks to Pepe Fernández - pepefernandez)
 German (Thanks to Remo)
 
 Russian (Thanks to Concrete5Russia.ru)
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Cravener/amiant-image-gallery/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
