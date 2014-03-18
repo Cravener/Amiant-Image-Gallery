@@ -11,7 +11,7 @@
  *
  * @package Amiant Image Gallery
  * @author Count Raven Amiant <cravener@gmail.com>
- * @copyright  Copyright (c) 2010-2013 Amiant Web Development Solutions. (http://amiant-dev.ru/)
+ * @copyright  Copyright (c) 2010-2014 Amiant Web Development Solutions. (http://amiant-dev.ru/)
  * @license    http://www.gnu.org/licenses/gpl-2.0.html     GNU GPL Version 2
  *
  */
@@ -21,6 +21,10 @@ defined('C5_EXECUTE') or die(_("Access Denied."));
 class ImageprocessorHelper {
 
 	private $cache_dir;
+
+	public function __construct() {
+		$this->cache_dir = DIR_FILES_CACHE.'/aig';
+	}
 
 	public function resizeAndCrop($prefix, $file, $width, $height) {
 		Loader::library('3rdparty/zebra_image/zebra_image', 'amiant_image_gallery');
@@ -44,14 +48,14 @@ class ImageprocessorHelper {
 		}
 		
 		if (file_exists($cache_dir.'/aig_'.$prefix.'_cropped_'.$fID.'_'.$width.'x'.$height.'.'.$ext)) {
-			return BASE_URL.'/files/cache/aig/aig_'.$prefix.'_cropped_'.$fID.'_'.$width.'x'.$height.'.'.$ext;
+			return BASE_URL.DIR_REL.'/files/cache/aig/aig_'.$prefix.'_cropped_'.$fID.'_'.$width.'x'.$height.'.'.$ext;
 		} else {
 			$image->source_path = $fv->getPath();
 			$image->target_path = $cache_dir.'/aig_'.$prefix.'_cropped_'.$fID.'_'.$width.'x'.$height.'.'.$ext;
 			
 			if (!$image->resize($width, $height, ZEBRA_IMAGE_CROP_CENTER, -1)) return false;
 			
-			return BASE_URL.'/files/cache/aig/aig_'.$prefix.'_cropped_'.$fID.'_'.$width.'x'.$height.'.'.$ext;
+			return BASE_URL.DIR_REL.'/files/cache/aig/aig_'.$prefix.'_cropped_'.$fID.'_'.$width.'x'.$height.'.'.$ext;
 		}
 	}
 
@@ -77,7 +81,7 @@ class ImageprocessorHelper {
 		}
 		
 		if (file_exists($cache_dir.'/aig_'.$prefix.'_watermark_'.$fID.'_'.$width.'x'.$height.'.'.$ext)) {
-			return BASE_URL.'/files/cache/aig/aig_'.$prefix.'_watermark_'.$fID.'_'.$width.'x'.$height.'.'.$ext;
+			return BASE_URL.DIR_REL.'/files/cache/aig/aig_'.$prefix.'_watermark_'.$fID.'_'.$width.'x'.$height.'.'.$ext;
 		} else {
 			$image->source_path = $fv->getPath();
 			$image->target_path = $cache_dir.'/aig_'.$prefix.'_resized_'.$fID.'_'.$width.'x'.$height.'.'.$ext;
@@ -87,13 +91,11 @@ class ImageprocessorHelper {
 			$image->target_path = $cache_dir.'/aig_'.$prefix.'_watermark_'.$fID.'_'.$width.'x'.$height.'.'.$ext;
 			if (!$image->watermark($watermark_file, 35)) return false;
 			
-			return BASE_URL.'/files/cache/aig/aig_'.$prefix.'_watermark_'.$fID.'_'.$width.'x'.$height.'.'.$ext;
+			return BASE_URL.DIR_REL.'/files/cache/aig/aig_'.$prefix.'_watermark_'.$fID.'_'.$width.'x'.$height.'.'.$ext;
 		}
 	}
 
 	public function checkImageCache() {
-		$this->cache_dir = DIR_FILES_CACHE.'/aig';
-		
 		if (!is_dir($this->cache_dir)) {
 			if (!mkdir($this->cache_dir, 0755, true)) {
 				return false;
@@ -103,10 +105,8 @@ class ImageprocessorHelper {
 	}
 	
 	public function clearImageCache() {
-		$cache_dir = DIR_FILES_CACHE.'/aig';
-
-		if (is_dir($cache_dir)) {
-			$pattern = $cache_dir.'/aig_*.*';
+		if (is_dir($this->cache_dir)) {
+			$pattern = $this->cache_dir.'/aig_*.*';
 
 			$imageCache = glob($pattern);
 			
