@@ -13,7 +13,7 @@
  *
  * @package Amiant Image Gallery
  * @author Count Raven Amiant <cravener@gmail.com>
- * @copyright  Copyright (c) 2010-2013 Amiant Web Development Solutions. (http://amiant-dev.ru/)
+ * @copyright  Copyright (c) 2010-2014 Amiant Web Development Solutions. (http://amiant-dev.ru/)
  * @license    http://www.gnu.org/licenses/gpl-2.0.html     GNU GPL Version 2
  *
  */
@@ -27,7 +27,7 @@ class AmiantGalleryBlockController extends BlockController {
     protected $btInterfaceHeight = "500";
     protected $btWrapperClass = 'ccm-ui';
     
-    protected $productVersion = "0.7.3-20130321";
+    protected $productVersion = "0.7.3.1-20140318";
     
     // array of transitions for jQuery Cycle
     protected $transitions = array('0' => 'blindX',
