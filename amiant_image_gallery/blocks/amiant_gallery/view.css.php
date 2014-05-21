@@ -65,7 +65,7 @@
 
 .AmiantImageGalleryThumbnail<?php  echo $bID?> {
 	margin: 0 auto;
-	position: absolute;
+	position: relative;
 	<?php if ($cropToFillThumbnail != 1) { ?>
 	top: 50%;
 	<?php } ?>
